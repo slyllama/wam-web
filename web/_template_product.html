@@ -5,25 +5,10 @@
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
 		<link rel="icon" type="image/x-icon" href="../img/favicon.png">
-		<script type="text/javascript">
-			document.cookie = "cart=X; path = /";
-
-			function getCookie(cookieName) {
-				const cookies = document.cookie.split("; ");
-				for (const cookie of cookies) {
-					const [name, value] = cookie.split("=");
-					if (name === cookieName) {
-						return decodeURIComponent(value);
-					}
-				}
-				return null;
-			}
-
-			console.log(getCookie("cart"));
-		</script>
+		<script type="text/javascript" src="../scripts/cart.js"></script>
 	</head>
 
-	<body>
+	<body onload="populateProduct();">
 		<div id="hero">
 				<img src="../img/pipelinewam.svg" />
 		</div>
@@ -67,7 +52,7 @@
 				<div id="content-grid">
 					<div id="text-content">
 						$CONTENT
-						<div class="info"><p>Your order will be sent to your local branch for processing and payment. <a href="#">View your list now.</a></p></div>
+						<div class="info"><p>Your can email your list of selected products to your local branch for processing and payment. <a href="_cart.html">View your list now.</a></p></div>
 					</div>
 					<div id="image-content">
 						<div class="image-container">

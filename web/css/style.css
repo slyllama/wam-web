@@ -42,6 +42,14 @@ p {
 	margin-bottom: 0.5em;
 }
 
+pre {
+	font-family: monospace;
+	font-size: 12pt;
+	line-height: 1em;
+	margin-bottom: 1em;
+	margin-bottom: 1em;
+}
+
 table {
 	border: 1px solid #4c762f;
 	font-size: 10.5pt;
@@ -184,7 +192,9 @@ tr:hover:not(:first-child) {
 
 #sidebar {
 	height: fit-content;
-	padding: 10px 0;
+	line-height: 1.06em;
+	padding-bottom: 30px;
+	padding-top: 24px;
 }
 
 #sidebar>* {

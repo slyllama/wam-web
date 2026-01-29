@@ -31,11 +31,19 @@ func render(data: Dictionary) -> void:
 	
 	if "specifications" in data:
 		output += "<div class='table-wrapper'>\n"
-		output += TextUtils.INDENT + "<table>\n"
+		output += TextUtils.INDENT + "<table><tbody id='product-table'>\n"
 		var _rows = data.specifications.split("\n")
 		var _row_count := 0
 		for _row in _rows:
-			output += TextUtils.fmt("<tr>", 2)
+			var _code: String = _row.split(",")[0]
+			var _qty_number_id: String = "product-qty--" + _code
+			var _cart_function: String = ("addToCart(\""
+				+ _code + "\", \""
+				+ id + "\", \""
+				+ data.title + "\", "
+				+ "document.getElementById(`" + _qty_number_id + "`).value);")
+			
+			output += TextUtils.fmt("<tr id='row--" + _code + "'>", 2)
 			var _columns = _row.split(",")
 			for _column in _columns:
 				for _s in TextUtils.SUBS:
@@ -44,15 +52,16 @@ func render(data: Dictionary) -> void:
 				output += TextUtils.fmt(_column, 3, "td")
 			if _row_count != 0:
 				output += TextUtils.fmt("<td>", 3)
-				output += TextUtils.fmt("<input type='number' style='width: 40px;' value=0 />", 4)
-				output += TextUtils.fmt("<button>+</button>", 4)
+				output += TextUtils.fmt("<input type='number' style='width: 40px;' value=0 id='"
+					+ _qty_number_id + "'/>", 4)
+				output += TextUtils.fmt("<button onclick='" + _cart_function + "'>+</button>", 4)
 				output += TextUtils.fmt("</td>", 3)
 			else:
 				output += TextUtils.fmt("<td>Qty</td>", 3)
 			output += TextUtils.fmt("</tr>", 2)
 			_row_count += 1
 			
-		output += TextUtils.INDENT + "</table>\n"
+		output += TextUtils.INDENT + "</tbody></table>\n"
 		output += "</div>\n"
 	
 	var html_output = TextUtils.add_line_to_template(output, Global.product_html_template, "$CONTENT")
