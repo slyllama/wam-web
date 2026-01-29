@@ -50,8 +50,8 @@ func _ready() -> void:
 		output += TextUtils.fmt("<div>", 1)
 		output += TextUtils.fmt("<a href='../products/" + product + ".html'>", 2)
 		output += TextUtils.fmt("<img class='product-image' loading='lazy' src='" + _img_src + "' />", 3)
+		output += TextUtils.fmt("<div class='product-details-btn'><div>Details</div></div>", 3)
 		output += TextUtils.fmt("</a>", 2)
-		output += TextUtils.fmt("<div class='product-details-btn'><div>Details</div></div>", 2)
 		output += TextUtils.fmt("<p class='product-title'>", 2)
 		output += TextUtils.INDENT + TextUtils.INDENT + TextUtils.INDENT +"<a href='../products/" + product + ".html'>"
 		if "title" in data:

@@ -217,10 +217,11 @@ tr:hover:not(:first-child) {
 	color: white;
 	display: block;
 	font-weight: bold;
-	margin-right: 1.1em;
+	margin-right: 1.3em;
 	padding: 2px;
 	padding-right: 4px;
 	text-align: center;
+	text-decoration: none !important;
 	width: 70px;
 }
 
@@ -229,6 +230,10 @@ tr:hover:not(:first-child) {
 	gap: 10px;
 	grid-template-columns: repeat(5, 20%);
 	width: calc(100% - 20px * 4);
+}
+
+#product-grid>div>a {
+	text-decoration: none !important;
 }
 
 .product-image {
