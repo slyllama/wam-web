@@ -24,10 +24,10 @@
         {
             "name": "Marking",
             "value": "Roiter MPH Farivo - Multi-Purpose Hose D - 20bar - Made In Italy"
-        },
+        }
     ],
     "specifications": "Code,ID (imp.),ID (mm),OD (mm),WP (bar),MBR (mm),(kg/m)\nMG-MPH121-013,1/2\",13,23,20,100,0.38\nMG-MPH121-019,3/4\",19,31,20,140,0.65\nMG-MPH121-025,1\",25,37,20,180,0.80",
     "subtitle": "1/2in - 1in (20bar)",
     "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/1387/1791/farivo__78251.1754431347.png?c=1",
-    "title": "WAM Roiter Multi-Purpose Hose"
+    "title": "WAM Roiter MP Hose"
 }

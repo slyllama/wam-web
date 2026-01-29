@@ -1,0 +1,21 @@
+{
+    "description": "Designed for transporting hot water through car heater systems.",
+    "properties": [
+        {
+            "name": "Tube material",
+            "value": "rubber"
+        },
+        {
+            "name": "Reinforcement",
+            "value": "synthetic braid"
+        },
+        {
+            "name": "Cover material",
+            "value": "rubber"
+        }
+    ],
+    "specifications": "Code,ID (mm),OD (mm),Length (m)\nZ107-010,10,17,100\nZ107-013,13,20,100\nZ107-016,16,23.5,100\nZ107-019,19,26,100",
+    "subtitle": "10mm - 19mm",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/179/1692/car_heater__88774.1743629029.png?c=1",
+    "title": "Car Heater Hose"
+}

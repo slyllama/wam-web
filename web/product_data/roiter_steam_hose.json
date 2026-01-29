@@ -1,8 +1,29 @@
 {
-    "description": "",
-    "properties": [],
-    "specifications": "",
-    "subtitle": "",
-    "temp_img_path": "",
-    "title": "(Roiter Steam Hose)"
+    "description": "Suitable for conveying saturated steam and hot water.\n",
+    "properties": [
+        {
+            "name": "Temperature range",
+            "value": "-35&deg;C to 232&deg;C (saturated steam); 95&deg;C (hot water)"
+        },
+        {
+            "name": "Standard",
+            "value": "BS 5342:1985 2A"
+        },
+        {
+            "name": "Safety factor",
+            "value": "steam - 10:1, hot water - 3.15:1"
+        },
+        {
+            "name": "Coils",
+            "value": "40m"
+        },
+        {
+            "name": "Pressure",
+            "value": "18bar (saturated steam), 55bar (hot water)"
+        }
+    ],
+    "specifications": "Code,ID (mm),ID (imp.),Wall (mm),MBR (mm),Inserts,(kg/m)\nWAMR-VA318-013,13.5,1/2\",5.5,80,1,0.50\nWAMR-VA318-019,19,3/4\",6.0,110,1,0.65\nWAMR-VA318-025,25,1\",6.5,170,2,1.00\nWAMR-VA318-038,38,1-1/2\",7.5,200,2,1.55\nWAMR-VA318-051,50.8,2\",8.0,300,2,2.15",
+    "subtitle": "13.5mm - 50.8mm (18bar/55bar)",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/183/1696/roiter_steam_hose__02720.1743631296.png?c=1",
+    "title": "WAM Roiter Steam Hose"
 }

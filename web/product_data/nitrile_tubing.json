@@ -1,0 +1,13 @@
+{
+    "description": "Designed for transporting petroleum based oils/mineral oils and vegetable oils in non-pressure applications. ",
+    "properties": [
+        {
+            "name": "temp_range",
+            "value": "-20,80"
+        }
+    ],
+    "specifications": "Code,ID (mm)\nZ106-004,4\nZ106-005,5\nZ106-006,6\nZ106-008,8\nZ106-010,10\nZ106-011,11\nZ106-013,1",
+    "subtitle": "4mm - 13mm",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/191/1797/vacuum_tube__20233.1754861262.png?c=1",
+    "title": "Nitrile Tubing"
+}

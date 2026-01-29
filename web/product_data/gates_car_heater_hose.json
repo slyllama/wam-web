@@ -1,8 +1,17 @@
 {
-    "description": "",
-    "properties": [],
-    "specifications": "",
-    "subtitle": "1<br />2",
-    "temp_img_path": "",
+    "description": "Economically priced heater hose, yet affords long service life. Tested by Gates to assure reliability. Good resistance to high temperatures and non-oil based cooling additives. Moderate resistance to oil and grease combination. Similar to SAE 20R3 Class D-2.",
+    "properties": [
+        {
+            "name": "Tube material",
+            "value": "rubber"
+        },
+        {
+            "name": "temp_range",
+            "value": "-40,125"
+        }
+    ],
+    "specifications": "Code,ID (mm),WP (psi),Length (m)\n3272-4438,13,60,76\n3272-4439,16,60,76\n3272-4440,19,50,76",
+    "subtitle": "10mm - 19mm",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/178/1691/gates_car_heater__14262.1743628193.png?c=1",
     "title": "Gates Car Heater Hose"
 }

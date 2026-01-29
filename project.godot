@@ -15,7 +15,7 @@ run/main_scene="uid://binecono3sk1c"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="wam"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ciyhfhfhknwnh"
 
 [autoload]
 

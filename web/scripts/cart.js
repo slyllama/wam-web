@@ -30,7 +30,7 @@ function populateProduct() {
 			rowEle = document.getElementById("row--" + code)
 			qtyEle = document.getElementById("product-qty--" + code);
 
-			rowEle.style.backgroundColor = "initial";
+			rowEle.style.removeProperty("background");
 			if (code in cart) {
 				qtyEle.value = cart[code].qty;
 				if (cart[code].qty > 0) {
