@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://qr508f1ta5ax"]
+
+[ext_resource type="Script" uid="uid://di10vxgqf08wg" path="res://ui/list/list.gd" id="1_x5sj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5sj1"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="List" type="ScrollContainer" unique_id=447340662]
+custom_minimum_size = Vector2(130, 0)
+offset_right = 130.0
+offset_bottom = 16.0
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x5sj1")
+horizontal_scroll_mode = 0
+script = ExtResource("1_x5sj1")
+
+[node name="Box" type="VBoxContainer" parent="." unique_id=846225595]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2

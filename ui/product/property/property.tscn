@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dulhsdqxnm8j1"]
+
+[ext_resource type="Script" uid="uid://c2uaahexvni3e" path="res://ui/product/property/property.gd" id="1_aojy1"]
+
+[node name="Property" type="HBoxContainer" unique_id=826788060]
+offset_right = 812.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+script = ExtResource("1_aojy1")
+
+[node name="Name" type="LineEdit" parent="." unique_id=781837630]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "(Name)"
+
+[node name="Value" type="LineEdit" parent="." unique_id=500438567]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "(Value)"
+
+[node name="Delete" type="Button" parent="." unique_id=1400088142]
+modulate = Color(1, 0.5, 0.5, 1)
+layout_mode = 2
+text = "Delete"
+
+[connection signal="text_changed" from="Name" to="." method="_on_name_text_changed"]
+[connection signal="text_changed" from="Value" to="." method="_on_value_text_changed"]
+[connection signal="pressed" from="Delete" to="." method="_on_delete_pressed"]

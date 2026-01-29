@@ -1,0 +1,25 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "temp_range",
+            "value": "-20,70"
+        },
+        {
+            "name": "Tube material",
+            "value": "NBR rubber"
+        },
+        {
+            "name": "Reinforcement",
+            "value": "high-tensile synthetic textile"
+        },
+        {
+            "name": "Cover material",
+            "value": "weather and abrasion-resistant rubber"
+        }
+    ],
+    "specifications": "Code,ID (mm),OD (mm),WP (psi),BP (psi),Length (m)\nS30200-013,13,23,250,1000,100\nS30200-019,19,29,250,1000,100\nS30200-025,25,37,250,1000,100\nS30200-032,32,46,250,1000,100\nS30200-038,38,52,250,1000,100\nS30200-051,51,65.5,250,1000,100\nS30200-076,76,93,250,1000,100",
+    "subtitle": "13mm - 76mm (250psi)",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/300x300/products/184/1697/fras_sd__82174.1743631412.png?c=1",
+    "title": "FRAS Air Suction/Delivery Hose"
+}

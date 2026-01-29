@@ -1,0 +1,21 @@
+{
+    "description": "Recommended for air and water applications requiring maximum flexibility. Outstanding resistance to heat and ozone, plus good cover resistance to vegetable oils.",
+    "properties": [
+        {
+            "name": "temp_range",
+            "value": "-40,93"
+        },
+        {
+            "name": "Tube and cover material",
+            "value": "black EPDM Rubber (RMA Class C)"
+        },
+        {
+            "name": "Reinforcement",
+            "value": "synthetic cord piles"
+        }
+    ],
+    "specifications": "Code,ID (mm),OD (mm),WP (psi),Suction (mm Hg),MBR (mm),Mass (g/m)\n3204-1401,6,12,200,762,76,120\n3204-1405,8,14,200,762,76,165\n3204-1407,10,17,200,762,76,210\n3204-1413,13,21,200,635,127,300\n3204-1422,19,27,200,381,152,510\n3204-1431,25,36,200,254,203,820\n3204-1437,32,44,250,254,254,820",
+    "subtitle": "6mm - 32mm (200psi)",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/177/1690/adaptaflex_air__32884.1743627161.png?c=1",
+    "title": "Gates Adaptaflex Air Hose"
+}

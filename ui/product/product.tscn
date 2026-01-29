@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://3cnj2g33ahll"]
+
+[ext_resource type="Script" uid="uid://bkg7p2va6hlq5" path="res://ui/product/product.gd" id="1_80c7e"]
+[ext_resource type="FontFile" uid="uid://od3sv7w5otjs" path="res://generic/fonts/intel_one_mono.ttf" id="2_n00rs"]
+[ext_resource type="Script" uid="uid://c0t0g40gukwuq" path="res://ui/product/scripts/spec_table.gd" id="3_81gfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80c7e"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[node name="Product" type="ScrollContainer" unique_id=1551734460]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_80c7e")
+script = ExtResource("1_80c7e")
+
+[node name="Box" type="VBoxContainer" parent="." unique_id=356490775]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ID" type="Label" parent="Box" unique_id=3556396]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ID"
+horizontal_alignment = 1
+
+[node name="TitleBox" type="HBoxContainer" parent="Box" unique_id=1557667159]
+layout_mode = 2
+
+[node name="TitleTitle" type="Label" parent="Box/TitleBox" unique_id=496898058]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Title"
+
+[node name="Title" type="LineEdit" parent="Box/TitleBox" unique_id=85120321]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubtitleBox" type="HBoxContainer" parent="Box" unique_id=1431485270]
+layout_mode = 2
+
+[node name="SubtitleTitle" type="Label" parent="Box/SubtitleBox" unique_id=1487847484]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Subtitle"
+
+[node name="Subtitle" type="LineEdit" parent="Box/SubtitleBox" unique_id=846877077]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ImagePathBox" type="HBoxContainer" parent="Box" unique_id=1115264194]
+layout_mode = 2
+
+[node name="ImagePathTitle" type="Label" parent="Box/ImagePathBox" unique_id=245589972]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Image URL"
+
+[node name="ImagePath" type="LineEdit" parent="Box/ImagePathBox" unique_id=1995633664]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.24504241, 0.68811667, 0.85382587, 1)
+placeholder_text = "(Temporary image URL until mirrored)"
+select_all_on_focus = true
+
+[node name="DescriptionTitle" type="Label" parent="Box" unique_id=1644909045]
+layout_mode = 2
+text = "Description"
+
+[node name="Description" type="TextEdit" parent="Box" unique_id=918553165]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/line_spacing = -2
+text = "
+"
+wrap_mode = 1
+
+[node name="PropertiesBox" type="HBoxContainer" parent="Box" unique_id=696083045]
+layout_mode = 2
+
+[node name="PropertiesTitle" type="Label" parent="Box/PropertiesBox" unique_id=1425545626]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Properties"
+
+[node name="AddProperty" type="Button" parent="Box/PropertiesBox" unique_id=1085410516]
+layout_mode = 2
+text = "Add"
+
+[node name="Properties" type="VBoxContainer" parent="Box" unique_id=1678162000]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="SpecTableBox" type="HBoxContainer" parent="Box" unique_id=1949137895]
+layout_mode = 2
+
+[node name="SpecTableTitle" type="Label" parent="Box/SpecTableBox" unique_id=1196781666]
+layout_mode = 2
+text = "Specifications"
+
+[node name="FormatSpecTable" type="Button" parent="Box/SpecTableBox" unique_id=854059411]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Format"
+
+[node name="SpecTable" type="CodeEdit" parent="Box" unique_id=1093249721]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("2_n00rs")
+placeholder_text = "Specifications"
+script = ExtResource("3_81gfy")
+
+[node name="Padding" type="ColorRect" parent="Box" unique_id=703808147]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(0.012617188, 0.012617188, 0.012617188, 0)
+
+[node name="Options" type="HBoxContainer" parent="Box" unique_id=1317906487]
+layout_mode = 2
+
+[node name="Save" type="Button" parent="Box/Options" unique_id=1857030042]
+unique_name_in_owner = true
+modulate = Color(0.5, 1, 0.5, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="Reload" type="Button" parent="Box/Options" unique_id=873729260]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reload From File"
+
+[node name="Render" type="Button" parent="Box/Options" unique_id=302810263]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Render"
+
+[connection signal="pressed" from="Box/PropertiesBox/AddProperty" to="." method="_on_add_property_pressed"]
+[connection signal="pressed" from="Box/SpecTableBox/FormatSpecTable" to="." method="_on_format_spec_table_pressed"]
+[connection signal="focus_exited" from="Box/SpecTable" to="Box/SpecTable" method="_on_focus_exited"]
+[connection signal="text_changed" from="Box/SpecTable" to="Box/SpecTable" method="_on_text_changed"]
+[connection signal="pressed" from="Box/Options/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Box/Options/Reload" to="." method="_on_reload_pressed"]
+[connection signal="pressed" from="Box/Options/Render" to="." method="_on_render_pressed"]

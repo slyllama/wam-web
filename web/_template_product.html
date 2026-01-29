@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>$TITLE</title>
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+		<script type="text/javascript">
+			document.cookie = "cart=X; path = /";
+
+			function getCookie(cookieName) {
+				const cookies = document.cookie.split("; ");
+				for (const cookie of cookies) {
+					const [name, value] = cookie.split("=");
+					if (name === cookieName) {
+						return decodeURIComponent(value);
+					}
+				}
+				return null;
+			}
+
+			console.log(getCookie("cart"));
+		</script>
+	</head>
+
+	<body>
+		<div id="hero">
+				<img src="../img/pipelinewam.svg" />
+		</div>
+		<div id="container">
+			<div id="contacts">
+				<div><b>Avondale</b><br />09 828 4710<br />sales@<br />hoseshop.co.nz</div>
+				<div><b>East Tamaki</b><br />09 271 6433<br />easttamaki@<br />hoseshop.co.nz</div>
+				<div><b>Coromandel</b><br />027 571 7472<br />coromandel@<br />hoseshop.co.nz</div>
+				<div><b>Tauranga</b><br />07 547 4567<br />tauranga@<br />hoseshop.co.nz</div>
+				<div><b>Hamilton</b><br />07 846 6960<br />hamilton@<br />hoseshop.co.nz</div>
+				<div><b>Rotorua</b><br />07 343 7082<br />rotorua@<br />hoseshop.co.nz</div>
+				<div><b>New Plymouth</b><br />06 759 1561<br />newplymouth@<br />hoseshop.co.nz</div>
+				<div><b>Christchurch</b><br />03 341 1330<br />christchurch@<br />hoseshop.co.nz</div>
+				<div><b>Ashburton</b><br />03 308 1307<br />ashburton@<br />hoseshop.co.nz</div>
+				<div><b>Timaru</b><br />03 688 2823<br />timaru@<br />hoseshop.co.nz</div>
+			</div>
+			<div id="header" class="styled-box">
+				<div id="header-wrapper">
+					<span>Products</span>
+					<span>Branches</span>
+					<span>Jobs</span>
+					<span>Conditions</span>
+					<span>Credit App</span>
+					<span>WAM Management System</span>
+				</div>
+			</div>
+			<div id="grid-wrapper">
+				<div id="sidebar" class="styled-box">
+					<p><b>Couplings and Fittings</b></p>
+					<ul>
+						<li>Aluminium</li>
+						<li>Brass</li>
+						<li>Stainless</li>
+						<li>Galvanized, Black Steel</li>
+					</ul>
+					<p><b>Hoses</b></p>
+					<ul>
+						<li><a href="../categories/rubber_hoses.html">Rubber Hoses</a></li>
+					</ul>
+				</div>
+				<div id="content-grid">
+					<div id="text-content">
+						$CONTENT
+						<div class="info"><p>Your order will be sent to your local branch for processing and payment. <a href="#">View your list now.</a></p></div>
+					</div>
+					<div id="image-content">
+						<div class="image-container">
+							<img src="$IMG_PATH" loading="lazy" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
