@@ -72,8 +72,8 @@ tr:first-child {
 	font-weight: bold;
 }
 
-tr:hover {
-	background: #4c762f !important;
+tr:hover:not(:first-child) {
+	background: #aaa !important;
 	color: #fff;
 }
 
@@ -202,6 +202,27 @@ tr:hover {
 }
 
 /* Product boxes */
+
+.product-details-btn {
+	display: flex;
+	justify-content: end;
+	margin-bottom: 1.3em; /* compensate for margin-top */
+	margin-top: -2.6em;
+	width: 100%;
+}
+
+.product-details-btn>div {
+	background: #2a7dc9;
+	border-radius: 2px;
+	color: white;
+	display: block;
+	font-weight: bold;
+	margin-right: 1.1em;
+	padding: 2px;
+	padding-right: 4px;
+	text-align: center;
+	width: 70px;
+}
 
 #product-grid {
 	display: grid;
