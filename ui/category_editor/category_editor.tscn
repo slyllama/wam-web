@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://binecono3sk1c"]
 
-[ext_resource type="Script" uid="uid://bbywoorsl3axf" path="res://scene.gd" id="1_3253y"]
-[ext_resource type="PackedScene" uid="uid://qr508f1ta5ax" path="res://ui/list/list.tscn" id="1_nxogm"]
-[ext_resource type="PackedScene" uid="uid://3cnj2g33ahll" path="res://ui/product/product.tscn" id="1_ulcgi"]
-[ext_resource type="Script" uid="uid://dbbmjgjtm5kju" path="res://scripts/status.gd" id="2_m7jmp"]
-[ext_resource type="Script" uid="uid://dmoux3725jvij" path="res://scripts/new_product_box.gd" id="3_u3cyc"]
+[ext_resource type="Script" uid="uid://bbywoorsl3axf" path="res://ui/category_editor/category_editor.gd" id="1_8u3bm"]
+[ext_resource type="Script" uid="uid://dbbmjgjtm5kju" path="res://scripts/status.gd" id="2_pbh82"]
+[ext_resource type="PackedScene" uid="uid://qr508f1ta5ax" path="res://ui/list/list.tscn" id="3_5iual"]
+[ext_resource type="Script" uid="uid://dmoux3725jvij" path="res://scripts/new_product_box.gd" id="4_v0lcf"]
+[ext_resource type="PackedScene" uid="uid://3cnj2g33ahll" path="res://ui/product/product.tscn" id="5_mgs84"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drvgu"]
 
@@ -29,7 +29,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_drvgu")
-script = ExtResource("1_3253y")
+script = ExtResource("1_8u3bm")
 
 [node name="VBox" type="VBoxContainer" parent="." unique_id=1363587546]
 layout_mode = 1
@@ -50,7 +50,7 @@ modulate = Color(0.5, 0.5, 0.5, 1)
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u3cyc")
 text = "WAM"
-script = ExtResource("2_m7jmp")
+script = ExtResource("2_pbh82")
 
 [node name="ResetTimer" type="Timer" parent="VBox/StatusBox/StatusHBox/Status" unique_id=2090917259]
 one_shot = true
@@ -60,6 +60,10 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "Tip: hold Shift while clicking an ID to keep old product data."
 horizontal_alignment = 2
+
+[node name="CategoryMenu" type="Button" parent="VBox/StatusBox/StatusHBox" unique_id=1066706690]
+layout_mode = 2
+text = "Category Menu"
 
 [node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1776107038]
 layout_mode = 2
@@ -77,7 +81,7 @@ text = "Render All"
 layout_mode = 2
 text = "Render Category"
 
-[node name="List" parent="VBox/HBox/Sidebar" unique_id=329084322 instance=ExtResource("1_nxogm")]
+[node name="List" parent="VBox/HBox/Sidebar" unique_id=329084322 instance=ExtResource("3_5iual")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
@@ -90,7 +94,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m7jmp")
 [node name="NewProductBox" type="VBoxContainer" parent="VBox/HBox/Sidebar/Container" unique_id=1080729650]
 layout_mode = 2
 size_flags_vertical = 8
-script = ExtResource("3_u3cyc")
+script = ExtResource("4_v0lcf")
 
 [node name="NewProductTitle" type="Label" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=1197765192]
 layout_mode = 2
@@ -118,12 +122,13 @@ color = Color(1, 1, 1, 0)
 layout_mode = 2
 text = "Refresh List"
 
-[node name="Product" parent="VBox/HBox" unique_id=1551734460 instance=ExtResource("1_ulcgi")]
+[node name="Product" parent="VBox/HBox" unique_id=1551734460 instance=ExtResource("5_mgs84")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="timeout" from="VBox/StatusBox/StatusHBox/Status/ResetTimer" to="VBox/StatusBox/StatusHBox/Status" method="_on_reset_timer_timeout"]
+[connection signal="pressed" from="VBox/StatusBox/StatusHBox/CategoryMenu" to="." method="_on_category_menu_pressed"]
 [connection signal="pressed" from="VBox/HBox/Sidebar/RenderAll" to="VBox/HBox/Sidebar/List" method="_on_render_all_pressed"]
 [connection signal="pressed" from="VBox/HBox/Sidebar/RenderCategory" to="." method="_on_render_category_pressed"]
 [connection signal="id_clicked" from="VBox/HBox/Sidebar/List" to="." method="_on_list_id_clicked"]

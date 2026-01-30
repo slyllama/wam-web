@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cruv3xthhkura"]
+
+[ext_resource type="Script" uid="uid://bwqywb14a0rlx" path="res://main_window.gd" id="1_n7l54"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w8ba"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[node name="MainWindow" type="CanvasLayer" unique_id=332607387]
+script = ExtResource("1_n7l54")
+
+[node name="Box" type="PanelContainer" parent="." unique_id=239588506]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8w8ba")
+
+[node name="VBox" type="VBoxContainer" parent="Box" unique_id=891297324]
+layout_mode = 2
+
+[node name="CategoryList" type="VBoxContainer" parent="Box/VBox" unique_id=2116049069]
+layout_mode = 2

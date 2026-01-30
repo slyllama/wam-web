@@ -26,6 +26,7 @@ func _ready() -> void:
 	output += "<h1>" + category_title + "</h1>"
 	
 	for product in _category:
+		if !product: continue
 		if product[0] == "_": # Sub-category
 			if _c > 0: output += "</div>\n"
 			output += "<h2>" + product.replace("_", "") + "</h2>\n"
