@@ -1,6 +1,7 @@
 extends Node
 
 const HTML_ROOT := "res://web/"
+const PAGES_ROOT := HTML_ROOT + "pages/"
 
 const PRODUCT_DATA_PATH := HTML_ROOT + "product_data/"
 const PRODUCT_HTML_PATH := HTML_ROOT + "products/"
@@ -36,7 +37,6 @@ func generate_list(list_file: String, include_subcats := false) -> String:
 		if _line != "":
 			if !include_subcats and _line[0] == "_": continue
 			_output += _line.strip_edges() + ","
-	
 	return(_output.replace(",,", ""))
 
 func load_product_html_template() -> void: # use for reloading
@@ -71,6 +71,7 @@ func _init() -> void:
 	# Set up directories
 	_fill_dir(PRODUCT_DATA_PATH)
 	_fill_dir(PRODUCT_HTML_PATH)
+	_fill_dir(PAGES_ROOT)
 
 func _ready() -> void:
 	load_product_html_template()

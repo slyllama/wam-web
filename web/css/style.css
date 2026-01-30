@@ -192,7 +192,6 @@ tr:hover:not(:first-child) {
 }
 
 .image-container {
-	background: #fff;
 	display: block;
 	
 	/* Dimensions */

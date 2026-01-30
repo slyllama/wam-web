@@ -22,5 +22,26 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_8w8ba")
 [node name="VBox" type="VBoxContainer" parent="Box" unique_id=891297324]
 layout_mode = 2
 
+[node name="CategoriesTitle" type="Label" parent="Box/VBox" unique_id=913151168]
+layout_mode = 2
+text = "Edit Categories"
+
 [node name="CategoryList" type="VBoxContainer" parent="Box/VBox" unique_id=2116049069]
 layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Box/VBox" unique_id=184376415]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RenderNote" type="Label" parent="Box/VBox" unique_id=321911833]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "The list of rendered pages is stored in the \"pages.txt\" file. Pages are stored as \"id,Title\", one per line. The program will look for a source file at \"_id.html\" at the root of the HTML folder, and place the destination file at \"pages/id.html\"."
+autowrap_mode = 3
+
+[node name="RenderPages" type="Button" parent="Box/VBox" unique_id=1170299953]
+layout_mode = 2
+text = "Render Individual Pages"
+
+[connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]

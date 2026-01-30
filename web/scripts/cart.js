@@ -17,6 +17,11 @@ function saveCookie(cookieName) {
 
 function populateProduct() {
 	table = document.getElementById("product-table");
+
+	if (!table) { 
+		console.log("Page is in 'products' folder, but doesn't contain a table, so I won't do anything with cookies.");
+		return;
+	}
 	
 	if (!cart) {
 		cart = {}
