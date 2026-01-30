@@ -14,6 +14,7 @@ func render(data: Dictionary) -> void:
 	Global.load_product_html_template()
 	
 	var output := ""
+	output += TextUtils.fmt("<div><code class='product-id-debug'>" + id + "</code></div>")
 	if "title" in data:
 		output += TextUtils.fmt(data.title, 0, "h1")
 	if "description" in data:

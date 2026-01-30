@@ -11,6 +11,12 @@ b {
 	font-weight: bold;
 }
 
+code {
+	font-family: monospace;
+	font-size: 11pt;
+	line-height: 1em;
+}
+
 body {
 	background: url("../img/bg.jpg");
 	font-family: "Ubuntu", sans-serif;
@@ -250,6 +256,13 @@ tr:hover:not(:first-child) {
 
 #product-grid>div>a {
 	text-decoration: none !important;
+}
+
+.product-id-debug {
+	color: #999;
+	display: block;
+	margin-bottom: -0.5em;
+	text-align: right;
 }
 
 .product-image {
