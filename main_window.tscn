@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cruv3xthhkura"]
 
 [ext_resource type="Script" uid="uid://bwqywb14a0rlx" path="res://main_window.gd" id="1_n7l54"]
+[ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="2_tyee0"]
+[ext_resource type="StyleBox" uid="uid://bvumn4v34aqfe" path="res://generic/category_list_container.tres" id="3_sq7ho"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w8ba"]
 content_margin_left = 16.0
@@ -24,24 +26,47 @@ layout_mode = 2
 
 [node name="CategoriesTitle" type="Label" parent="Box/VBox" unique_id=913151168]
 layout_mode = 2
-text = "Edit Categories"
+theme_override_fonts/font = ExtResource("2_tyee0")
+text = "Manage category products"
 
-[node name="CategoryList" type="VBoxContainer" parent="Box/VBox" unique_id=2116049069]
+[node name="CategoriesDesc" type="Label" parent="Box/VBox" unique_id=1936028557]
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
+text = "Click a category to view and edit its contents. Modify a category by editing text files in the 'category_data' folder."
+autowrap_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="Box/VBox" unique_id=184376415]
-custom_minimum_size = Vector2(32, 32)
+[node name="CategoryListContainer" type="PanelContainer" parent="Box/VBox" unique_id=654322714]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_sq7ho")
+
+[node name="CategoryList" type="VBoxContainer" parent="Box/VBox/CategoryListContainer" unique_id=2116049069]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="RefreshCategories" type="Button" parent="Box/VBox" unique_id=1845351086]
+layout_mode = 2
+text = "Refresh Categories"
+
+[node name="Padding" type="ColorRect" parent="Box/VBox" unique_id=184376415]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 color = Color(1, 1, 1, 0)
 
-[node name="RenderNote" type="Label" parent="Box/VBox" unique_id=321911833]
+[node name="ProductsTitle" type="Label" parent="Box/VBox" unique_id=640699268]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tyee0")
+text = "Manage individual pages"
+
+[node name="ProductsDesc" type="Label" parent="Box/VBox" unique_id=321911833]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-text = "The list of rendered pages is stored in the \"pages.txt\" file. Pages are stored as \"id,Title\", one per line. The program will look for a source file at \"_id.html\" at the root of the HTML folder, and place the destination file at \"pages/id.html\"."
+text = "The list of rendered pages is stored in 'pages.txt' with the format 'id,Title'. The program will look for a source file at 'id.html' in the root folder, and place the output at 'pages/id.html'."
 autowrap_mode = 3
 
 [node name="RenderPages" type="Button" parent="Box/VBox" unique_id=1170299953]
 layout_mode = 2
 text = "Render Individual Pages"
 
+[connection signal="pressed" from="Box/VBox/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
 [connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]

@@ -3,7 +3,7 @@
     "properties": [
         {
             "name": "Temperature range",
-            "value": "-35&deg;C to 232&deg;C (saturated steam); 95&deg;C (hot water)"
+            "value": "-35&deg;c to 232&deg;c (saturated steam); 95&deg;c (hot water)"
         },
         {
             "name": "Standard",

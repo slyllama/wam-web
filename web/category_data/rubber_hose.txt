@@ -26,4 +26,15 @@ _Air and Water
 _Fuel and Oil
 	nitrile_tubing
 	gates_sub_fuel_line_hose
-	
+	gates_421g_fuel_line_hose
+	gates_trans_oil_cooler_hose
+	marine_fuel_line_a1_hose
+	gates_barricade_fuel_inj_hose
+	gates_pushloc_lola_hose
+	gates_premoflex_red_hose
+	gp_exquisite_mp_hose
+	petrol_oil_delivery_hose
+	bowser_petrol_pump_hose
+	asphalt_hose
+	petrol_oil_sd_hose
+	marine_fuel_line_a2_hose

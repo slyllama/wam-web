@@ -24,12 +24,16 @@ func render_pages() -> void:
 	add_child(_cart)
 	_cart.render()
 
-func _ready() -> void:
+func render_categories() -> void:
+	for _n: Node in %CategoryList.get_children():
+		_n.queue_free()
 	var _list_dir = DirAccess.get_files_at(Global.CATEGORY_DATA_PATH)
 	for _file in _list_dir:
 		var _b = Button.new()
 		_b.text = _file
 		_b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_b.flat = true
+		_b.theme_type_variation = "ListButton"
 		_b.pressed.connect(func():
 			var _list = Global.generate_list(Global.CATEGORY_DATA_PATH + _file)
 			var _category_editor = load(
@@ -37,8 +41,15 @@ func _ready() -> void:
 			_category_editor.list = _list
 			_category_editor.category_id = _file.replace(".txt", "")
 			get_tree().change_scene_to_node(_category_editor))
-		$Box/VBox/CategoryList.add_child(_b)
+		%CategoryList.add_child(_b)
+
+func _ready() -> void:
+	get_window().size.x = floori(400.0 * get_window().content_scale_factor)
+	render_categories()
 	render_pages()
 
 func _on_button_pressed() -> void:
 	render_pages()
+
+func _on_refresh_categories_pressed() -> void:
+	render_categories()

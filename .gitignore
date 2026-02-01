@@ -2,6 +2,7 @@
 *.tmp
 
 .godot/
+build/
 web/categories/
 web/products/
 

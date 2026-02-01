@@ -28,12 +28,13 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
-window/size/initial_position=Vector2i(800, 600)
+window/size/viewport_width=1000
+window/size/viewport_height=800
 
 [gui]
 
 theme/custom="uid://bttmxnxyjfybw"
-theme/custom_font="uid://epufaw2rb6e0"
+theme/custom_font="uid://d57xkg4q80bw"
 
 [input]
 
@@ -57,4 +58,4 @@ shift={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.26, 0.26, 0.26, 1)
+environment/defaults/default_clear_color=Color(0.8901961, 0.89411765, 0.8980392, 1)

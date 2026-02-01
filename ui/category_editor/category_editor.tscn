@@ -3,24 +3,26 @@
 [ext_resource type="Script" uid="uid://bbywoorsl3axf" path="res://ui/category_editor/category_editor.gd" id="1_8u3bm"]
 [ext_resource type="Script" uid="uid://dbbmjgjtm5kju" path="res://scripts/status.gd" id="2_pbh82"]
 [ext_resource type="PackedScene" uid="uid://qr508f1ta5ax" path="res://ui/list/list.tscn" id="3_5iual"]
-[ext_resource type="Script" uid="uid://dmoux3725jvij" path="res://scripts/new_product_box.gd" id="4_v0lcf"]
 [ext_resource type="PackedScene" uid="uid://3cnj2g33ahll" path="res://ui/product/product.tscn" id="5_mgs84"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drvgu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3cyc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_powcs"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(0.3, 0.3, 0.3, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0.7, 0.7, 0.7, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7jmp"]
-content_margin_left = 3.0
-content_margin_top = 3.0
-content_margin_right = 3.0
-content_margin_bottom = 3.0
-bg_color = Color(0.30998, 0.33, 0.2442, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_powcs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vl6la"]
+content_margin_left = 7.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 7.0
 
 [node name="Scene" type="Panel" unique_id=1522775419]
 anchors_preset = 15
@@ -41,101 +43,68 @@ grow_vertical = 2
 
 [node name="StatusBox" type="PanelContainer" parent="VBox" unique_id=1432383241]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_powcs")
 
 [node name="StatusHBox" type="HBoxContainer" parent="VBox/StatusBox" unique_id=605935353]
 layout_mode = 2
-
-[node name="Status" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=636483279]
-modulate = Color(0.5, 0.5, 0.5, 1)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_u3cyc")
-text = "WAM"
-script = ExtResource("2_pbh82")
-
-[node name="ResetTimer" type="Timer" parent="VBox/StatusBox/StatusHBox/Status" unique_id=2090917259]
-one_shot = true
-
-[node name="Tip" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=1541141459]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Tip: hold Shift while clicking an ID to keep old product data."
-horizontal_alignment = 2
 
 [node name="CategoryMenu" type="Button" parent="VBox/StatusBox/StatusHBox" unique_id=1066706690]
 layout_mode = 2
 text = "Category Menu"
 
+[node name="Status" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=636483279]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.25505486, 0.36313123, 0.09825783, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_powcs")
+script = ExtResource("2_pbh82")
+
+[node name="ResetTimer" type="Timer" parent="VBox/StatusBox/StatusHBox/Status" unique_id=2090917259]
+wait_time = 2.0
+one_shot = true
+
+[node name="Tip" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=1541141459]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "Tip: hold Shift while clicking an ID to keep old product data."
+horizontal_alignment = 2
+
 [node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1776107038]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Sidebar" type="VBoxContainer" parent="VBox/HBox" unique_id=647473452]
+[node name="SidebarContainer" type="PanelContainer" parent="VBox/HBox" unique_id=236201451]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_vl6la")
+
+[node name="Sidebar" type="VBoxContainer" parent="VBox/HBox/SidebarContainer" unique_id=647473452]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_constants/separation = 2
 
-[node name="RenderAll" type="Button" parent="VBox/HBox/Sidebar" unique_id=1979282878]
+[node name="RenderAll" type="Button" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=1979282878]
 layout_mode = 2
-text = "Render All"
+text = "Render Products"
 
-[node name="RenderCategory" type="Button" parent="VBox/HBox/Sidebar" unique_id=533660302]
+[node name="RenderCategory" type="Button" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=533660302]
 layout_mode = 2
 text = "Render Category"
 
-[node name="List" parent="VBox/HBox/Sidebar" unique_id=329084322 instance=ExtResource("3_5iual")]
+[node name="List" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=329084322 instance=ExtResource("3_5iual")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Container" type="PanelContainer" parent="VBox/HBox/Sidebar" unique_id=1392812175]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_m7jmp")
-
-[node name="NewProductBox" type="VBoxContainer" parent="VBox/HBox/Sidebar/Container" unique_id=1080729650]
-layout_mode = 2
-size_flags_vertical = 8
-script = ExtResource("4_v0lcf")
-
-[node name="NewProductTitle" type="Label" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=1197765192]
-layout_mode = 2
-text = "Create New Product"
-horizontal_alignment = 1
-
-[node name="NewProduct" type="LineEdit" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=1686833182]
-layout_mode = 2
-placeholder_text = "Product ID"
-
-[node name="Duplicate" type="Button" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=1284089008]
-layout_mode = 2
-text = "Duplicate"
-
-[node name="Create" type="Button" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=843243841]
-layout_mode = 2
-text = "Create"
-
-[node name="Padding" type="ColorRect" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=1162696094]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="RefreshList" type="Button" parent="VBox/HBox/Sidebar/Container/NewProductBox" unique_id=558333645]
-layout_mode = 2
-text = "Refresh List"
 
 [node name="Product" parent="VBox/HBox" unique_id=1551734460 instance=ExtResource("5_mgs84")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="timeout" from="VBox/StatusBox/StatusHBox/Status/ResetTimer" to="VBox/StatusBox/StatusHBox/Status" method="_on_reset_timer_timeout"]
 [connection signal="pressed" from="VBox/StatusBox/StatusHBox/CategoryMenu" to="." method="_on_category_menu_pressed"]
-[connection signal="pressed" from="VBox/HBox/Sidebar/RenderAll" to="VBox/HBox/Sidebar/List" method="_on_render_all_pressed"]
-[connection signal="pressed" from="VBox/HBox/Sidebar/RenderCategory" to="." method="_on_render_category_pressed"]
-[connection signal="id_clicked" from="VBox/HBox/Sidebar/List" to="." method="_on_list_id_clicked"]
-[connection signal="new_product_created" from="VBox/HBox/Sidebar/Container/NewProductBox" to="." method="_on_new_product_box_new_product_created"]
-[connection signal="new_product_duplicate" from="VBox/HBox/Sidebar/Container/NewProductBox" to="." method="_on_new_product_box_new_product_duplicate"]
-[connection signal="text_submitted" from="VBox/HBox/Sidebar/Container/NewProductBox/NewProduct" to="VBox/HBox/Sidebar/Container/NewProductBox" method="_on_new_product_text_submitted"]
-[connection signal="pressed" from="VBox/HBox/Sidebar/Container/NewProductBox/Duplicate" to="VBox/HBox/Sidebar/Container/NewProductBox" method="_on_duplicate_pressed"]
-[connection signal="pressed" from="VBox/HBox/Sidebar/Container/NewProductBox/Create" to="VBox/HBox/Sidebar/Container/NewProductBox" method="_on_create_pressed"]
-[connection signal="pressed" from="VBox/HBox/Sidebar/Container/NewProductBox/RefreshList" to="." method="_on_refresh_list_pressed"]
+[connection signal="timeout" from="VBox/StatusBox/StatusHBox/Status/ResetTimer" to="VBox/StatusBox/StatusHBox/Status" method="_on_reset_timer_timeout"]
+[connection signal="pressed" from="VBox/HBox/SidebarContainer/Sidebar/RenderAll" to="VBox/HBox/SidebarContainer/Sidebar/List" method="_on_render_all_pressed"]
+[connection signal="pressed" from="VBox/HBox/SidebarContainer/Sidebar/RenderCategory" to="." method="_on_render_category_pressed"]
+[connection signal="id_clicked" from="VBox/HBox/SidebarContainer/Sidebar/List" to="." method="_on_list_id_clicked"]
 [connection signal="saved" from="VBox/HBox/Product" to="." method="_on_product_saved"]

@@ -11,7 +11,7 @@ const CATEGORY_DATA_PATH := HTML_ROOT + "category_data/"
 const CATEGORY_HTML_PATH := HTML_ROOT + "categories/"
 const CATEGORY_HTML_TEMPLATE_PATH := HTML_ROOT + "_template_category.html"
 
-const RETINA_SCALE_FACTOR = 1.6
+const RETINA_SCALE_FACTOR = 1.5
 
 signal status_updated(status: String)
 
@@ -37,7 +37,7 @@ func generate_list(list_file: String, include_subcats := false) -> String:
 		if _line != "":
 			if !include_subcats and _line[0] == "_": continue
 			_output += _line.strip_edges() + ","
-	return(_output.replace(",,", ""))
+	return(_output.replace(",,", "").rstrip(","))
 
 func load_product_html_template() -> void: # use for reloading
 	if FileAccess.file_exists(PRODUCT_HTML_TEMPLATE_PATH):

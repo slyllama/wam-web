@@ -30,6 +30,7 @@ func render_all() -> void:
 		add_child(_pr)
 		_pr.render(data)
 		_pr.queue_free()
+	Global.status_updated.emit("All product HTML rendered.")
 
 func populate() -> void:
 	for _n in $Box.get_children():
@@ -45,12 +46,13 @@ func populate() -> void:
 		_b.text = _id
 		_b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		_b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_b.theme_type_variation = "ListButton"
 		_b.pressed.connect(func():
 			id_clicked.emit(_id))
 		$Box.add_child(_b)
 		
 		if !FileAccess.file_exists(Global.PRODUCT_DATA_PATH + _id + ".json"):
-			_b.modulate = Color("ffd736")
+			_b.add_theme_color_override("font_color", Color("ccccccff"))
 
 func _ready() -> void:
 	populate()
