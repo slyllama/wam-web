@@ -37,7 +37,7 @@ func _on_render_category_pressed() -> void:
 	var _cr = CategoryRenderer.new()
 	_cr.id_list = Global.generate_list(Global.CATEGORY_DATA_PATH + category_id + ".txt", true)
 	_cr.category_id = category_id
-	_cr.category_title = "Rubber Hoses"
+	#_cr.category_title = "Rubber Hoses"
 	add_child(_cr)
 	await get_tree().process_frame
 	_cr.queue_free()

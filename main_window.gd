@@ -53,3 +53,7 @@ func _on_button_pressed() -> void:
 
 func _on_refresh_categories_pressed() -> void:
 	render_categories()
+
+func _on_ra_button_pressed() -> void:
+	%RenderAll.render_all()
+	render_pages()

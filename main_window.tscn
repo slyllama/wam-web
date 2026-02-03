@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwqywb14a0rlx" path="res://main_window.gd" id="1_n7l54"]
 [ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="2_tyee0"]
 [ext_resource type="StyleBox" uid="uid://bvumn4v34aqfe" path="res://generic/category_list_container.tres" id="3_sq7ho"]
+[ext_resource type="Script" uid="uid://b31djlpr60fey" path="res://scripts/render_all.gd" id="4_l06f4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w8ba"]
 content_margin_left = 16.0
@@ -68,5 +69,30 @@ autowrap_mode = 3
 layout_mode = 2
 text = "Render Individual Pages"
 
+[node name="Padding2" type="ColorRect" parent="Box/VBox" unique_id=2009300239]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="RATitle" type="Label" parent="Box/VBox" unique_id=2098246422]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tyee0")
+text = "Render all"
+
+[node name="RADesc" type="Label" parent="Box/VBox" unique_id=160030819]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+text = "Render all product, category, and individual pages."
+autowrap_mode = 3
+
+[node name="RAButton" type="Button" parent="Box/VBox" unique_id=1968743768]
+layout_mode = 2
+text = "Render All"
+
+[node name="RenderAll" type="Node" parent="." unique_id=1016224602]
+unique_name_in_owner = true
+script = ExtResource("4_l06f4")
+
 [connection signal="pressed" from="Box/VBox/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
 [connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Box/VBox/RAButton" to="." method="_on_ra_button_pressed"]
