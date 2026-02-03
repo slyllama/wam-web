@@ -1,0 +1,37 @@
+al_fittings,Aluminium Fittings
+brass_fittings,Brass Fittings
+ss_fittings,Stainless Steel Fittings
+galv_bs_fittings,Galvanized and Black Steel Fittings
+garden_fittings,Garden Fittings
+bauer_assorted_fittings,Bauer, Travis, Ferrari, Storz Fittings
+strainers,Strainers
+pressure_wash_fittings,Pressure Wash Nozzles and Fittings
+rubber_hose,Rubber Hoses
+plastic_hose,Plastic Hoses
+silicon_rubber_adaptors,Silicon and Rubber Adaptors
+composite_ss,Composite and Stainless Steel Hoses
+ducting_vacuum,Ducting and Vacuum Hoses
+hose_accessories,Hose Accessories
+clips_clamps,Clips and Clamps
+bandings_cable_ties,Bandings and Cable Ties
+tank_truck,Tank Truck Hoses and Accessories
+hydraulic_hose,Hydraulic Hoses
+hyd_steel_fittings,Hydraulic Steel Fittings
+hyd_steel_adaptors,Hydraulic Steel Adaptors
+crimping_machines,Crimping Machines
+speed_fittings,Speed Fittings
+valves_ss,Stainless 316 Steel Valves
+valves_brass,Brass Valves
+valves_gas,Gas-Rated Valves
+valves_plastic,Plastic Valves
+valves_steel,Steel Valves
+airline,Airline Couplings and Accessories
+nozzles,Nozzles and Accessories
+pumps,Pumps
+reels,Hose Reels
+engineering,Engineering Services
+expansion_joints,Expansion Joints
+hose_slings,Hose Slings
+storage_bins,Storage Bins
+v_belts,V Belts
+flowmeters,Flowmeters

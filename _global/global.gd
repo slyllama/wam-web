@@ -18,6 +18,19 @@ signal status_updated(status: String)
 var product_html_template := ""
 var category_html_template := ""
 
+var category_titles := {}
+
+func get_category_titles() -> Dictionary:
+	var _page_titles := {}
+	if FileAccess.file_exists(Global.HTML_ROOT + "categories.txt"):
+		var pages_file = FileAccess.open(Global.HTML_ROOT + "categories.txt", FileAccess.READ)
+		var pages = pages_file.get_as_text().strip_edges().split("\n")
+		pages_file.close()
+		for page in pages:
+			var data = page.split(",")
+			_page_titles[data[0]] = data[1]
+	return(_page_titles)
+
 func splice_file_into_template(file_path: String, template: String, marker: String) -> String:
 	var _file = FileAccess.open(file_path, FileAccess.READ)
 	var _text = _file.get_as_text()
@@ -75,6 +88,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	load_product_html_template()
+	category_titles = get_category_titles()
 	
 	# Render scale on retina displays
 	if DisplayServer.screen_get_size().x > 2000:

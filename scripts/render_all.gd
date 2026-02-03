@@ -24,13 +24,14 @@ func render_all() -> void:
 		_pr.queue_free()
 	
 	Global.load_category_html_template()
+	Global.category_titles = Global.get_category_titles()
+	
 	for file: String in DirAccess.get_files_at(Global.CATEGORY_DATA_PATH):
 		var category_id: String = file.replace(".txt", "")
-		
 		var _cr = CategoryRenderer.new()
 		_cr.id_list = Global.generate_list(Global.CATEGORY_DATA_PATH + category_id + ".txt", true)
 		_cr.category_id = category_id
-		_cr.category_title = "Rubber Hoses"
+		if category_id in Global.category_titles:
+			_cr.category_title = Global.category_titles[category_id]
 		add_child(_cr)
-		await get_tree().process_frame
 		_cr.queue_free()

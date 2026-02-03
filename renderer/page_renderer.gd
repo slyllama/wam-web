@@ -14,7 +14,7 @@ func render() -> void:
 		return
 	
 	var source = Global.splice_file_into_template(
-		source_path, Global.product_html_template, "$CONTENT")
+		source_path, Global.category_html_template, "$CONTENT")
 	var output_file = FileAccess.open(output_folder + page_id + ".html", FileAccess.WRITE)
 	output_file = output_file
 	output_file.store_string(source.replace("$TITLE", page_title))

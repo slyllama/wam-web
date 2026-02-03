@@ -20,7 +20,7 @@ func render_pages() -> void:
 	var _cart = load("res://renderer/page_renderer.gd").new()
 	_cart.page_id = "_cart"
 	_cart.output_folder = Global.HTML_ROOT + "products/"
-	_cart.page_title = "Cart"
+	_cart.page_title = "Enquiry Cart"
 	add_child(_cart)
 	_cart.render()
 
