@@ -3,6 +3,12 @@
 	src: url("../fonts/ubuntu.ttf");
 }
 
+@font-face {
+	font-family: "Ubuntu";
+	font-weight: bold;
+	src: url("../fonts/ubuntu-bold.ttf");
+}
+
 a {
 	color: #4c762f;
 }
@@ -20,20 +26,21 @@ code {
 body {
 	background: url("../img/bg.jpg");
 	font-family: "Ubuntu", sans-serif;
+	font-size: 11pt;
 	line-height: 1.2em;
 	min-width: 1400px;
 }
 
 h1 {
 	border-bottom: 1px solid #4c762f;
-	font-size: 17pt;
+	font-size: 21pt;
 	font-weight: bold;
 	margin-bottom: 1em;
 	padding-bottom: 0.45em;
 }
 
 h2 {
-	font-size: 14pt;
+	font-size: 17pt;
 	font-weight: bold;
 	margin-bottom: 0.6em;
 	margin-top: 0.5em;
@@ -95,8 +102,7 @@ tr:hover:not(:first-child) {
 #container {
 	display: block;
 	margin: 20px auto;
-	max-width: 90%;
-	width: 1600px;
+	max-width: 95%;
 }
 
 #contacts {
@@ -150,12 +156,21 @@ tr:hover:not(:first-child) {
 
 #hero>img {
 	display: block;
-	margin: 20px auto;
-	width: 400px;
+	margin: 10px auto;
+	max-width: 90%;
+	width: 900px;
 }
 
 #image-content {
 	margin-top: 4px;
+}
+
+.image-container {
+	display: block;
+	
+	/* Dimensions */
+	height: 246px;
+	width: 246px;
 }
 
 .image-container>img {
@@ -183,20 +198,12 @@ tr:hover:not(:first-child) {
 	box-shadow: 0px 1px 9px rgb(0, 0, 0, 0.2);
 	height: fit-content;
 	padding-bottom: 32px;
-	padding-top: 16px;
+	padding-top: 32px;
 }
 
 #text-content>* {
 	margin-left: 20px;
 	margin-right: 20px;
-}
-
-.image-container {
-	display: block;
-	
-	/* Dimensions */
-	height: 246px;
-	width: 246px;
 }
 
 #sidebar {
@@ -215,11 +222,16 @@ tr:hover:not(:first-child) {
 	margin-top: 12px;
 }
 
+#sidebar>ul>li {
+	line-height: 0.9em;
+	margin-bottom: 5px;
+}
+
 .styled-box {
 	background: #eff5ec; 
 	border: 1px solid #4c762f;
 	border-radius: 2px;
-	box-shadow: 0px 1px 9px rgb(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 5px rgb(0, 0, 0, 0.1);
 }
 
 /* Product boxes */
@@ -248,9 +260,9 @@ tr:hover:not(:first-child) {
 
 #product-grid {
 	display: grid;
-	gap: 10px;
-	grid-template-columns: repeat(5, 20%);
-	width: calc(100% - 20px * 4);
+	gap: 5px;
+	grid-template-columns: repeat(6, 16%);
+	width: calc(100% - 5px * 5);
 }
 
 #product-grid>div>a {
