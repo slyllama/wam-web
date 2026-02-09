@@ -22,7 +22,6 @@ _Air and Water
 	gorgeous_sandblast_hose
 	gates_paint_spray_hose
 	roiter_air_steel_hose
-
 _Fuel and Oil
 	nitrile_tubing
 	gates_sub_fuel_line_hose
