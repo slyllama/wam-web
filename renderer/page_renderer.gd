@@ -7,7 +7,7 @@ extends Node
 @export var output_folder: String = Global.PAGES_ROOT
 
 func render() -> void:
-	var source_path = Global.HTML_ROOT + "_" + page_id + ".html"
+	var source_path = Global.DATA_ROOT + "_" + page_id + ".html"
 	if !FileAccess.file_exists(source_path):
 		print("No page source found for '" + page_id + "', skipping this one.")
 		queue_free()

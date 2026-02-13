@@ -1,15 +1,15 @@
 extends Node
-
-const HTML_ROOT := "res://web/"
+const DATA_ROOT := "res://web/"
+const HTML_ROOT := DATA_ROOT + "live/"
 const PAGES_ROOT := HTML_ROOT + "page/"
 
-const PRODUCT_DATA_PATH := HTML_ROOT + "product_data/"
+const PRODUCT_DATA_PATH := DATA_ROOT + "product_data/"
 const PRODUCT_HTML_PATH := HTML_ROOT + "product/"
-const PRODUCT_HTML_TEMPLATE_PATH := HTML_ROOT + "_template_product.html"
+const PRODUCT_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_product.html"
 
-const CATEGORY_DATA_PATH := HTML_ROOT + "category_data/"
+const CATEGORY_DATA_PATH := DATA_ROOT + "category_data/"
 const CATEGORY_HTML_PATH := HTML_ROOT + "category/"
-const CATEGORY_HTML_TEMPLATE_PATH := HTML_ROOT + "_template_category.html"
+const CATEGORY_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_category.html"
 
 const RETINA_SCALE_FACTOR = 1.5
 
@@ -22,8 +22,8 @@ var category_titles := {}
 
 func get_category_titles() -> Dictionary:
 	var _page_titles := {}
-	if FileAccess.file_exists(Global.HTML_ROOT + "categories.txt"):
-		var pages_file = FileAccess.open(Global.HTML_ROOT + "categories.txt", FileAccess.READ)
+	if FileAccess.file_exists(Global.DATA_ROOT + "categories.txt"):
+		var pages_file = FileAccess.open(Global.DATA_ROOT + "categories.txt", FileAccess.READ)
 		var pages = pages_file.get_as_text().strip_edges().split("\n")
 		pages_file.close()
 		for page in pages:
@@ -59,7 +59,7 @@ func load_product_html_template() -> void: # use for reloading
 		_f.close()
 		
 		var _tmp = splice_file_into_template(
-			HTML_ROOT + "_template_sidebar.html",
+			DATA_ROOT + "_template_sidebar.html",
 			product_html_template,
 			"$SIDEBAR")
 		product_html_template = _tmp
@@ -71,7 +71,7 @@ func load_category_html_template() -> void: # use for reloading
 		_f.close()
 		
 		var _tmp = splice_file_into_template(
-			HTML_ROOT + "_template_sidebar.html",
+			DATA_ROOT + "_template_sidebar.html",
 			category_html_template,
 			"$SIDEBAR")
 		category_html_template = _tmp

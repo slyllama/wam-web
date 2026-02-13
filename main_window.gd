@@ -2,8 +2,8 @@ extends CanvasLayer
 
 func render_pages() -> void:
 	# Generate pages
-	if FileAccess.file_exists(Global.HTML_ROOT + "pages.txt"):
-		var pages_file = FileAccess.open(Global.HTML_ROOT + "pages.txt", FileAccess.READ)
+	if FileAccess.file_exists(Global.DATA_ROOT + "pages.txt"):
+		var pages_file = FileAccess.open(Global.DATA_ROOT + "pages.txt", FileAccess.READ)
 		var pages = pages_file.get_as_text().strip_edges().split("\n")
 		pages_file.close()
 		
