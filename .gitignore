@@ -3,6 +3,7 @@
 
 .godot/
 build/
-web/categories/
-web/products/
+web/live/category
+web/live/product
+web/live/page
 
