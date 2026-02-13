@@ -16,7 +16,6 @@ function getCookie(cookieName) {
 }
 
 function saveCookie(cookieName) {
-	console.log("I'm saving the cart to your cookie!");
 	document.cookie = "cart=" + JSON.stringify(cart) + ";path=/";
 }
 
@@ -37,18 +36,21 @@ function populateProduct() {
 	for (const row of table.children) {
 		if (c > 0) {
 			code = row.id.replace("row--", "");
-			rowEle = document.getElementById("row--" + code)
+			rowEle = document.getElementById("row--" + code);
 			qtyEle = document.getElementById("product-qty--" + code);
-
-			rowEle.style.removeProperty("background");
+			if (rowEle != null) { rowEle.style.removeProperty("background"); }
 			if (code in cart) {
-				qtyEle.value = cart[code].qty;
-				if (cart[code].qty > 0) {
+				if (qtyEle != null) {
+					qtyEle.value = cart[code].qty;
+				}
+				if (cart[code].qty > 0 && rowEle != null) {
 					rowEle.style.backgroundColor = "#ffe8bf";
 				}
 			}
 			else {
-				qtyEle.value = 0;
+				if (qtyEle != null) {
+					qtyEle.value = 0;
+				}
 			}
 		}
 		c += 1
@@ -61,7 +63,6 @@ function populateProduct() {
 // qty: quantity
 
 function addToCart(code, id, name, qty) {
-	console.log("I'm adding to the cart!");
 	newQty = document.getElementById("product-qty--" + code).value;
 	if (newQty <= 0) {
 		newQty = 0;
@@ -79,6 +80,23 @@ function addToCart(code, id, name, qty) {
 	printCart();
 }
 
+function addToCartNoPopulate(code, id, name, qty) {
+	newQty = document.getElementById("product-qty--" + code).value;
+	if (newQty <= 0) {
+		newQty = 0;
+		delete cart[code];
+	}
+	else {
+		cart[code] = {
+			"name": name,
+			"qty": qty,
+			"id": id
+		}
+	}
+	saveCookie(cart);
+	printCart();
+}
+
 function clearCart() {
 	console.log("I'm clearing the cart!");
 	cart = {};
@@ -87,3 +105,4 @@ function clearCart() {
 }
 
 printCart();
+

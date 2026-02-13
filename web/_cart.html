@@ -14,6 +14,43 @@
 		emailText += " - Name: " + document.getElementById("cart--name").value + "\n";
 		window.location.href = "mailto:alex.laing@me.com?body=" + encodeURIComponent(emailText);
 	}
+
+	function modifyItem(code, id, title, qty) {
+		addToCart(code, id, title, qty);
+		refreshCartTable();
+	}
+
+	function refreshCartTable() {
+		var tableStart = ("<tbody id='product-table'><tr id='row--Code'>"
+			+ "<td>Code</td><td>Quantity</td></tr>");
+		var tableEnd = "</tbody>";
+		
+		var table = tableStart;
+		for (const item in cart) {
+			table += "<tr>";
+
+			// Add the product and SKU associated with this cart entry
+			table += "<td><a href='../../product/" + cart[item].id + "'>";
+			table += cart[item].name + "</a>: " + item + "</td>";
+
+			var qtyNumberId = "product-qty--" + item;
+			table += "<td id='row--" + item + "'>";
+			table += "<input type='number' style='width: 40px;' value=";
+			table += cart[item].qty;
+			table += " min=0 id='";
+			table += qtyNumberId + "'";
+			table += "onchange=\"";
+			table += ("modifyItem('" + item + "', '"
+				+ cart[item].id + "', '" + cart[item].name
+				+ "', document.getElementById('"
+				+ qtyNumberId + "').value);\"");
+			table += "id='" + qtyNumberId + "'/>";
+			table += "</td>";
+			table += "</tr>";
+		}
+		table += tableEnd;
+		document.getElementById("product-table").innerHTML = table;
+	}
 </script>
 
 <h1>Enquiry Cart</h1>
@@ -28,31 +65,30 @@
 		<tr id="row--Code">
 			<td>Code</td>
 		</tr>
-			<script type="text/javascript">
-				for (const item in cart) {
-					document.write("<tr>");
-					document.write("<td>");
-					document.write(cart[item].qty);
-					document.write(" &times; <a href='../../product/" + cart[item].id + "'>");
-					document.write(cart[item].name);
-					document.write("</a>: ")
-					document.write(item);
-					document.write("</td>");
-					document.write("</tr>");
-				}
-			</script>
 		</tbody>
 	</table>
 </div>
 
+<script>refreshCartTable();</script>
+
 <h2>Send Enquiry Cart</h2>
 
 <div id="enquiry-container">
-	<div><p>Name/company<span style="color: red;">*</span>:</p><input id="cart--name" class="enquiry-field" /></div>
-	<div><p>Email address<span style="color: red;">*</span>:</p><input id="cart--email" class="enquiry-field" /></div>
-	<div><p>Phone number (optional):</p><input id="cart--phone" class="enquiry-field" /></div>
+	<div>
+		<p>Name/company<span style="color: red;">*</span>:
+		</p><input id="cart--name" class="enquiry-field" />
+	</div>
+	<div>
+		<p>Email address<span style="color: red;">*</span>:</p>
+		<input id="cart--email" class="enquiry-field" />
+	</div>
+	<div>
+		<p>Phone number (optional):</p>
+		<input id="cart--phone" class="enquiry-field" />
+	</div>
 </div>
 
 <p>Notes: <textarea id="cart--notes" class="enquiry-field" rows=5></textarea></p>
 
 <button class="enquiry-submit" onclick="submitCartEmail();">Send Enquiry Cart For Processing and Payment</button>
+
