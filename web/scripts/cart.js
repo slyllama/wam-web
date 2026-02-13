@@ -1,5 +1,9 @@
 cart = JSON.parse(getCookie("cart"));
 
+function printCart() {
+	console.log("Here's your current cart: " + JSON.stringify(cart) + ".");
+}
+
 function getCookie(cookieName) {
 	const cookies = document.cookie.split("; ");
 		for (const cookie of cookies) {
@@ -12,7 +16,8 @@ function getCookie(cookieName) {
 }
 
 function saveCookie(cookieName) {
-	document.cookie = "cart=" + JSON.stringify(cart);
+	console.log("I'm saving the cart to your cookie!");
+	document.cookie = "cart=" + JSON.stringify(cart) + ";path=/";
 }
 
 function populateProduct() {
@@ -56,24 +61,29 @@ function populateProduct() {
 // qty: quantity
 
 function addToCart(code, id, name, qty) {
+	console.log("I'm adding to the cart!");
 	newQty = document.getElementById("product-qty--" + code).value;
-	if (newQty == 0) {
+	if (newQty <= 0) {
+		newQty = 0;
 		delete cart[code];
-	} else {
+	}
+	else {
 		cart[code] = {
 			"name": name,
-			"qty": qty
+			"qty": qty,
+			"id": id
 		}
 	}
 	saveCookie(cart);
 	populateProduct();
+	printCart();
 }
 
 function clearCart() {
+	console.log("I'm clearing the cart!");
 	cart = {};
 	saveCookie(cart);
 	location.reload();
 }
 
-console.log(cart);
-
+printCart();

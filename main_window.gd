@@ -18,8 +18,8 @@ func render_pages() -> void:
 	
 	# Do cart separately as it goes in the products folder
 	var _cart = load("res://renderer/page_renderer.gd").new()
-	_cart.page_id = "_cart"
-	_cart.output_folder = Global.HTML_ROOT + "products/"
+	_cart.page_id = "cart"
+	_cart.output_folder = Global.PAGES_ROOT
 	_cart.page_title = "Enquiry Cart"
 	add_child(_cart)
 	_cart.render()

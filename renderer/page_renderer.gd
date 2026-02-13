@@ -15,7 +15,11 @@ func render() -> void:
 	
 	var source = Global.splice_file_into_template(
 		source_path, Global.category_html_template, "$CONTENT")
-	var output_file = FileAccess.open(output_folder + page_id + ".html", FileAccess.WRITE)
+	var path = output_folder + page_id + "/"
+	print(path)
+	if !DirAccess.dir_exists_absolute(path):
+		DirAccess.make_dir_recursive_absolute(path)
+	var output_file = FileAccess.open(path + "index.html", FileAccess.WRITE)
 	output_file = output_file
 	output_file.store_string(source.replace("$TITLE", page_title))
 	output_file.close()

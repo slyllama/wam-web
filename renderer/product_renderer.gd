@@ -6,7 +6,10 @@ func save_to_html(html_text: String) -> void:
 	if !id:
 		print("Error saving to HTML: no ID assigned.")
 		return
-	var _f = FileAccess.open(Global.PRODUCT_HTML_PATH + id + ".html", FileAccess.WRITE)
+	var path := Global.PRODUCT_HTML_PATH + id + "/"
+	if !DirAccess.dir_exists_absolute(path):
+		DirAccess.make_dir_absolute(path)
+	var _f = FileAccess.open(path + "index.html", FileAccess.WRITE)
 	_f.store_string(html_text)
 	_f.close()
 
@@ -53,7 +56,7 @@ func render(data: Dictionary) -> void:
 				output += TextUtils.fmt(_column, 3, "td")
 			if _row_count != 0:
 				output += TextUtils.fmt("<td>", 3)
-				output += TextUtils.fmt("<input onchange='" + _cart_function + "' type='number' style='width: 40px;' value=0 id='"
+				output += TextUtils.fmt("<input onchange='" + _cart_function + "' type='number' style='width: 40px;' value=0 min=0 id='"
 					+ _qty_number_id + "'/>", 4)
 				output += TextUtils.fmt("</td>", 3)
 			else:

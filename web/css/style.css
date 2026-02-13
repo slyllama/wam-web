@@ -46,6 +46,12 @@ h2 {
 	margin-top: 1.5em;
 }
 
+h3 {
+	font-size: 14pt;
+	font-weight: bold;
+	margin-bottom: 0.6em;
+}
+
 i {
 	font-style: italic;
 }
@@ -103,6 +109,31 @@ tr:hover:not(:first-child) {
 }
 */
 
+#branch-grid {
+	display: grid;
+	gap: 12px;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+#branch-grid > div {
+	background: #f2f2f2;
+	border-radius: 3px;
+	padding: 16px 0;
+}
+
+#branch-grid > div> * {
+	margin: 0 8px;
+}
+
+#branch-grid > div > img {
+	border: 1px solid grey;
+	border-radius: 2px;
+	display: block;
+	margin-bottom: 0.6em;
+	margin-top: 0.6em;
+	width: calc(100% - 18px);
+}
+
 #container {
 	display: block;
 	margin: 20px auto;
@@ -125,6 +156,34 @@ tr:hover:not(:first-child) {
 	display: grid;
 	gap: 24px;
 	grid-template-columns: 1fr 256px;
+}
+
+#enquiry-container {
+	display: grid;
+	gap: 12px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.enquiry-field {
+	box-shadow: 0px 1px 5px rgba(1, 1, 1 , 0.1);
+	margin-bottom: 1em;
+	width: 100%;
+}
+
+.enquiry-submit {
+	background: #4c762f;
+	border: none;
+	border-radius: 2px;
+	color: #fff;
+	padding: 8px 16px;
+	cursor: pointer;
+	font-family: "Ubuntu", sans-serif !important;
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+.enquiry-submit:hover {
+	background: #233913;
 }
 
 #grid-wrapper {

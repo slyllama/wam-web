@@ -1,14 +1,14 @@
 extends Node
 
 const HTML_ROOT := "res://web/"
-const PAGES_ROOT := HTML_ROOT + "pages/"
+const PAGES_ROOT := HTML_ROOT + "page/"
 
 const PRODUCT_DATA_PATH := HTML_ROOT + "product_data/"
-const PRODUCT_HTML_PATH := HTML_ROOT + "products/"
+const PRODUCT_HTML_PATH := HTML_ROOT + "product/"
 const PRODUCT_HTML_TEMPLATE_PATH := HTML_ROOT + "_template_product.html"
 
 const CATEGORY_DATA_PATH := HTML_ROOT + "category_data/"
-const CATEGORY_HTML_PATH := HTML_ROOT + "categories/"
+const CATEGORY_HTML_PATH := HTML_ROOT + "category/"
 const CATEGORY_HTML_TEMPLATE_PATH := HTML_ROOT + "_template_category.html"
 
 const RETINA_SCALE_FACTOR = 1.5

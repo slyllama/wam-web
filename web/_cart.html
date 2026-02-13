@@ -1,0 +1,58 @@
+<script type="text/javascript">
+	function submitCartEmail() {
+		var emailText = "";
+		emailText += "Enquiry Cart For Processing and Payment - Pipeline Industries\n";
+		emailText += "\n";
+		
+		emailText += "Products:\n";
+		for (const item in cart) {
+			emailText += " - " + cart[item].qty + " x " + cart[item].name + ": " + item + "\n";
+		}
+		emailText += "\n";
+		
+		emailText += "Customer details:\n";
+		emailText += " - Name: " + document.getElementById("cart--name").value + "\n";
+		window.location.href = "mailto:alex.laing@me.com?body=" + encodeURIComponent(emailText);
+	}
+</script>
+
+<h1>Enquiry Cart</h1>
+
+<div class="info">
+	<p>Your can email product enquiry to your local branch for processing and payment.</p>
+</div>
+
+<div class="table-wrapper">
+	<table>
+		<tbody id="product-table">
+		<tr id="row--Code">
+			<td>Code</td>
+		</tr>
+			<script type="text/javascript">
+				for (const item in cart) {
+					document.write("<tr>");
+					document.write("<td>");
+					document.write(cart[item].qty);
+					document.write(" &times; <a href='../../product/" + cart[item].id + "'>");
+					document.write(cart[item].name);
+					document.write("</a>: ")
+					document.write(item);
+					document.write("</td>");
+					document.write("</tr>");
+				}
+			</script>
+		</tbody>
+	</table>
+</div>
+
+<h2>Send Enquiry Cart</h2>
+
+<div id="enquiry-container">
+	<div><p>Name/company<span style="color: red;">*</span>:</p><input id="cart--name" class="enquiry-field" /></div>
+	<div><p>Email address<span style="color: red;">*</span>:</p><input id="cart--email" class="enquiry-field" /></div>
+	<div><p>Phone number (optional):</p><input id="cart--phone" class="enquiry-field" /></div>
+</div>
+
+<p>Notes: <textarea id="cart--notes" class="enquiry-field" rows=5></textarea></p>
+
+<button class="enquiry-submit" onclick="submitCartEmail();">Send Enquiry Cart For Processing and Payment</button>

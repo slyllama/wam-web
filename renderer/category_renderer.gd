@@ -8,9 +8,11 @@ func save_to_html(html_text: String) -> void:
 	if !category_id:
 		print("Error saving to HTML: no ID assigned.")
 		return
-	if !DirAccess.make_dir_absolute(Global.CATEGORY_HTML_PATH):
-		DirAccess.make_dir_absolute(Global.CATEGORY_HTML_PATH)
-	var _f = FileAccess.open(Global.CATEGORY_HTML_PATH + category_id + ".html", FileAccess.WRITE)
+	var path := Global.CATEGORY_HTML_PATH + category_id + "/"
+	if !DirAccess.dir_exists_absolute(path):
+		DirAccess.make_dir_recursive_absolute(path)
+	
+	var _f = FileAccess.open(path + "index.html", FileAccess.WRITE)
 	_f.store_string(html_text)
 	_f.close()
 
@@ -51,12 +53,12 @@ func _ready() -> void:
 			_img_src = data.temp_img_path
 		
 		output += TextUtils.fmt("<div>", 1)
-		output += TextUtils.fmt("<a href='../products/" + product + ".html'>", 2)
+		output += TextUtils.fmt("<a href='../../product/" + product + "'>", 2)
 		output += TextUtils.fmt("<img class='product-image' loading='lazy' src='" + _img_src + "' />", 3)
 		output += TextUtils.fmt("<div class='product-details-btn'><div>Details</div></div>", 3)
 		output += TextUtils.fmt("</a>", 2)
 		output += TextUtils.fmt("<p class='product-title'>", 2)
-		output += TextUtils.INDENT + TextUtils.INDENT + TextUtils.INDENT +"<a href='../products/" + product + ".html'>"
+		output += TextUtils.INDENT + TextUtils.INDENT + TextUtils.INDENT +"<a href='../../products/" + product + "'>"
 		if "title" in data:
 			output += data.title
 		else:
