@@ -1,0 +1,13 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nAL-DP-019,19\nAL-DP-025,25\nAL-DP-032,32\nAL-DP-038,38\nAL-DP-051,51\nAL-DP-064,64\nAL-DP-076,76\nAL-DP-100,100\nAL-DP-127,127\nAL-DP-152,152\nAL-DP-204,204",
+    "subtitle": "Dust plug",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/271/536/7__12423.1698179871.jpg?c=1",
+    "title": "AL-DP Camlock"
+}

@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP, NPT, and others on request"
+        }
+    ],
+    "specifications": "Code,Size (mm),Thread\nAL-A-013,13,BSP\nAL-A-019,19,BSP\nAL-A-019NPT,19,NPT\nAL-A-025,25,BSP\nAL-A-025NPT,25,NPT\nAL-A-032,32,BSP\nAL-A-032NPT,32,NPT\nAL-A-038,38,BSP\nAL-A-038NPT,38,NPT\nAL-A-051,51,BSP\nAL-A-051NPT,51,NPT\nAL-A-051P,51,Parallel\nAL-A-064,64,BSP\nAL-A-076,76,BSP\nAL-A-076NPT,76,NPT\nAL-A-100,100,BSP\nAL-A-100NPT,100,NPT\nAL-A-127,127,BSP\nAL-A-127NPT,127,NPT\nAL-A-152,152,BSP\nAL-A-204,204,BSP\nAL-A-SLIP,204,Slip-on",
+    "subtitle": "Male camlock to female thread",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/300x300/products/257/1758/gp_a__39324.1751595738.jpg?c=1",
+    "title": "AL-A Camlock"
+}

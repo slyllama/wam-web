@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nGP-F-019,19\nGP-F-025,25\nGP-F-032,32\nGP-F-038,38\nGP-F-051,51\nGP-F-064,64\nGP-F-076,76\nGP-F-100,100\nGP-F-152,152",
+    "subtitle": "Male camlock to male thread",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/262/527/gp6__74499.1698117695.jpg?c=1",
+    "title": "GP-F Camlock"
+}

@@ -1,0 +1,13 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nGP-DP-019,19\nGP-DP-025,25\nGP-DP-032,32\nGP-DP-038,38\nGP-DP-051,51\nGP-DP-064,64\nGP-DP-076,76\nGP-DP-100,100\nGP-DP-152,152",
+    "subtitle": "Dust plug",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/264/529/gp8__38345.1698118175.jpg?c=1",
+    "title": "GP-DP Camlock"
+}

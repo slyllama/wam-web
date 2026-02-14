@@ -121,10 +121,16 @@ layout_mode = 2
 layout_mode = 2
 text = "Specifications"
 
-[node name="FormatSpecTable" type="Button" parent="Box/SpecTableBox" unique_id=854059411]
+[node name="RemoveEndColumn" type="Button" parent="Box/SpecTableBox" unique_id=767429157]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+text = "Remove End Column"
+
+[node name="FormatSpecTable" type="Button" parent="Box/SpecTableBox" unique_id=854059411]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
 text = "Format"
 
 [node name="SpecTable" type="TextEdit" parent="Box" unique_id=895482617]
@@ -156,6 +162,7 @@ size_flags_horizontal = 3
 text = "Save and Render"
 
 [connection signal="pressed" from="Box/PropertiesBox/AddProperty" to="." method="_on_add_property_pressed"]
+[connection signal="pressed" from="Box/SpecTableBox/RemoveEndColumn" to="." method="_on_remove_end_column_pressed"]
 [connection signal="pressed" from="Box/SpecTableBox/FormatSpecTable" to="." method="_on_format_spec_table_pressed"]
 [connection signal="focus_exited" from="Box/SpecTable" to="Box/SpecTable" method="_on_focus_exited"]
 [connection signal="text_changed" from="Box/SpecTable" to="Box/SpecTable" method="_on_text_changed"]

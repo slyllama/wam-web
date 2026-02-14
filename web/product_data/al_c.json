@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP, NPT, and others on request"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nAL-C-013,13\nAL-C-019,19\nAL-C-025,25\nAL-C-032,32\nAL-C-038,38\nAL-C-051,51\nAL-C-064,64\nAL-C-076,76\nAL-C-100,100\nAL-C-127,127\nAL-C-152,152\nAL-C-204,204",
+    "subtitle": "Female camlock to hose tail",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/267/532/3__41610.1698178089.jpg?c=1",
+    "title": "AL-C Camlock"
+}

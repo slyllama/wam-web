@@ -19,7 +19,7 @@ func render(data: Dictionary) -> void:
 	var output := ""
 	output += TextUtils.fmt("<div><code class='product-id-debug'>" + id + "</code></div>")
 	if "title" in data:
-		output += TextUtils.fmt(data.title, 0, "h1")
+		output += TextUtils.fmt(data.title + "<span style='font-weight: normal;'> &mdash; " + data.subtitle + "</span>", 0, "h1")
 	if "description" in data:
 		output += TextUtils.fmt(data.description, 0, "p")
 	if "properties" in data:

@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nGP-D-019,19\nGP-D-025,25\nGP-D-032,32\nGP-D-038,38\nGP-D-051,51\nGP-D-064,64\nGP-D-076,76\nGP-D-100,100\nGP-D-152,152",
+    "subtitle": "Female camlock to female thread",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/260/525/gp4__70748.1698115825.jpg?c=1",
+    "title": "GP-D Camlock"
+}

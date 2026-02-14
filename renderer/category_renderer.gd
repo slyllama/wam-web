@@ -24,7 +24,6 @@ func _ready() -> void:
 		return
 	
 	var output := ""
-	print(id_list)
 	var _category = id_list.split(",")
 	output += "<h1>" + category_title.strip_edges(false, true) + "</h1>\n"
 	
@@ -34,13 +33,12 @@ func _ready() -> void:
 			if _c > 0: output += "</div>\n"
 			output += "<h2>" + product.replace("_", "") + "</h2>\n"
 			output += "<div id='product-grid'>\n"
-			print(output)
 			continue
 		
 		var _path = Global.PRODUCT_DATA_PATH + product + ".json"
 		var _f = FileAccess.open(_path, FileAccess.READ)
 		if !_f:
-			#output += TextUtils.INDENT + "<div style='color: #bbb; text-decoration: line-through;'>" + product + "</div>\n"
+			output += TextUtils.INDENT + "<div style='color: #bbb; text-decoration: line-through;'>" + product + "</div>\n"
 			continue
 		
 		var _json_parse = JSON.parse_string(_f.get_as_text())

@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP, NPT, and others on request"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nAL-E-013,13\nAL-E-019,19\nAL-E-025,25\nAL-E-032,32\nAL-E-038,38\nAL-E-051,51\nAL-E-064,64\nAL-E-076,76\nAL-E-100,100\nAL-E-127,127\nAL-E-152,152\nAL-E-204,204",
+    "subtitle": "Male camlock to hose tail",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/269/534/5__96187.1698178994.jpg?c=1",
+    "title": "AL-E Camlock"
+}

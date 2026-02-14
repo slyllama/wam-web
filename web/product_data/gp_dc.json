@@ -1,0 +1,13 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nGP-DC-019,19\nGP-DC-025,25\nGP-DC-032,32\nGP-DC-038,38\nGP-DC-051,51\nGP-DC-064,64\nGP-DC-076,76\nGP-DC-100,100\nGP-DC-152,152",
+    "subtitle": "Dust cap",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/263/528/gp7__08669.1698117996.jpg?c=1",
+    "title": "GP-DC Camlock"
+}

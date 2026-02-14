@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "properties": [
+        {
+            "name": "Material",
+            "value": "aluminium"
+        },
+        {
+            "name": "Thread",
+            "value": "BSP"
+        }
+    ],
+    "specifications": "Code,Size (mm)\nGP-C-019,19\nGP-C-025,25\nGP-C-032,32\nGP-C-038,38\nGP-C-051,51\nGP-C-064,64\nGP-C-076,76\nGP-C-100,100\nGP-C-152,152",
+    "subtitle": "Female camlock to hose tail",
+    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/259/524/gp3__40024.1698115310.jpg?c=1",
+    "title": "GP-C Camlock"
+}

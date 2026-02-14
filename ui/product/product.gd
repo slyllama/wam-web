@@ -150,7 +150,21 @@ func _on_format_spec_table_pressed() -> void:
 	
 	%SpecTable.text = %SpecTable.text.replace("ID Size (mm)", "ID (mm)")
 	%SpecTable.text = %SpecTable.text.replace("OD Size (mm)", "OD (mm)")
+	%SpecTable.text = %SpecTable.text.replace("Thread Type", "Thread")
+	%SpecTable.text = %SpecTable.text.replace("Slip On", "Slip-on")
 	%SpecTable.text = %SpecTable.text.replace("Working Pressure (psi)", "WP (psi)")
 	%SpecTable.text = %SpecTable.text.replace("Burst Pressure (psi)", "BP (psi)")
 	%SpecTable.text = %SpecTable.text.replace("Coil Length(s) (m)", "Length (m)")
 	%SpecTable.text = %SpecTable.text.replace("Min Bend Radius (mm)", "MBR (mm)")
+
+func _on_remove_end_column_pressed() -> void:
+	var csv: Array = %SpecTable.text.split("\n")
+	var output := ""
+	for line in csv:
+		var line_array: Array = line.split(",")
+		for i in range(0, line_array.size() - 1):
+			output += line_array[i] + ","
+		output = output.rstrip(",")
+		output += "\n"
+	output = output.rstrip("\n")
+	%SpecTable.text = output

@@ -9,7 +9,9 @@ const SUBS = {
 	"od_mm": "OD (mm)",
 	"wp_bar": "WP (bar)",
 	"mbr_mm": "MBR (mm)",
-	"weight_kg": "(kg/m)"
+	"weight_kg": "(kg/m)",
+	"Thread": "Thread Type",
+	"Slip-on": "Slip On"
 }
 
 func format_temp_range(temp_range: String) -> String:
