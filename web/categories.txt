@@ -1,3 +1,4 @@
+featured,Featured Products
 al_fittings,Aluminium Fittings
 brass_fittings,Brass Fittings
 ss_fittings,Stainless Steel Fittings

@@ -30,8 +30,9 @@
 			table += "<tr>";
 
 			// Add the product and SKU associated with this cart entry
-			table += "<td><a href='../../product/" + cart[item].id + "'>";
-			table += cart[item].name + "</a>: " + item + "</td>";
+			table += "<td><b><a style='text-decoration: none;'";
+			table += "href='../../product/" + cart[item].id + "'>";
+			table += cart[item].name + "</a></b>: <code style='font-size: 10pt;'>" + item + "</code></td>";
 
 			var qtyNumberId = "product-qty--" + item;
 			table += "<td id='row--" + item + "'>";
@@ -56,7 +57,7 @@
 <h1>Enquiry Cart</h1>
 
 <div class="info">
-	<p>Your can email product enquiry to your local branch for processing and payment.</p>
+	<p>You can email product enquiry to your local branch for processing and payment.</p>
 </div>
 
 <div class="table-wrapper">

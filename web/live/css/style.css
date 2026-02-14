@@ -24,7 +24,7 @@ code {
 }
 
 body {
-	background: url("../img/bg.jpg");
+	background: url("../img/bg.png");
 	font-family: "Ubuntu", sans-serif;
 	font-size: 11pt;
 	line-height: 1.2em;
@@ -75,13 +75,14 @@ pre {
 
 table {
 	border: 1px solid #4c762f;
+	box-shadow: 0px 1px 9px rgb(0, 0, 0, 0.2);
 	font-size: 10.5pt;
 	margin-top: 20px;
 	width: 100%;
 }
 
 td {
-	padding: 1px 2px;
+	padding: 2px 8px;
 	height: 1.5em;
 	text-align: right;
 }
@@ -176,10 +177,15 @@ tr:hover:not(:first-child) {
 	text-align: center;
 }
 
+#contacts>div>a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
 #content-grid {
 	display: grid;
 	gap: 24px;
-	grid-template-columns: 1fr 256px;
+	grid-template-columns: 1fr 300px;
 }
 
 #enquiry-container {
@@ -245,7 +251,8 @@ tr:hover:not(:first-child) {
 
 #hero {
 	background: #223c1a;
-	padding: 8px 0;
+	box-shadow: 0px 1px 6px rgb(0, 0, 0, 0.4);
+	padding: 18px 0;
 	width: 100%;
 }
 
@@ -253,7 +260,7 @@ tr:hover:not(:first-child) {
 	display: block;
 	margin: 10px auto;
 	max-width: 90%;
-	width: 900px;
+	width: 1000px;
 }
 
 #image-content {
@@ -264,11 +271,12 @@ tr:hover:not(:first-child) {
 	display: block;
 	
 	/* Dimensions */
-	height: 246px;
-	width: 246px;
+	height: 300px;
+	width: 300px;
 }
 
 .image-container>img {
+	box-shadow: 0px 1px 9px rgb(0, 0, 0, 0.3);
 	width: 100%;
 }
 
@@ -276,6 +284,7 @@ tr:hover:not(:first-child) {
 	background: #ffe8bf;
 	border: 1px solid #634935;
 	border-radius: 2px;
+	box-shadow: 0px 1px 9px rgb(0, 0, 0, 0.2);
 	color: #634935;
 	line-height: 1.0em;
 	margin-top: 20px;
@@ -374,6 +383,7 @@ tr:hover:not(:first-child) {
 .product-image {
 	aspect-ratio: 1/1;
 	background: #eee;
+	box-shadow: 0px 1px 4px rgb(0, 0, 0, 0.3);
 	display: block;
 	margin-bottom: 1em;
 	max-height: 100%;

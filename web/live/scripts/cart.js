@@ -38,7 +38,9 @@ function populateProduct() {
 			code = row.id.replace("row--", "");
 			rowEle = document.getElementById("row--" + code);
 			qtyEle = document.getElementById("product-qty--" + code);
-			if (rowEle != null) { rowEle.style.removeProperty("background"); }
+			if (rowEle != null) {
+				rowEle.style.removeProperty("background");
+			}
 			if (code in cart) {
 				if (qtyEle != null) {
 					qtyEle.value = cart[code].qty;
@@ -77,23 +79,6 @@ function addToCart(code, id, name, qty) {
 	}
 	saveCookie(cart);
 	populateProduct();
-	printCart();
-}
-
-function addToCartNoPopulate(code, id, name, qty) {
-	newQty = document.getElementById("product-qty--" + code).value;
-	if (newQty <= 0) {
-		newQty = 0;
-		delete cart[code];
-	}
-	else {
-		cart[code] = {
-			"name": name,
-			"qty": qty,
-			"id": id
-		}
-	}
-	saveCookie(cart);
 	printCart();
 }
 
