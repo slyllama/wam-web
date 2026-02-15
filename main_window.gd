@@ -57,3 +57,6 @@ func _on_refresh_categories_pressed() -> void:
 func _on_ra_button_pressed() -> void:
 	%RenderAll.render_all()
 	render_pages()
+
+func _on_open_data_folder_pressed() -> void:
+	OS.shell_open(OS.get_user_data_dir())
