@@ -1,3 +1,0 @@
-_PVC Hoses
-	nt_tube
-	nt_pressure_flex

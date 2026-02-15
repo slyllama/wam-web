@@ -1,6 +1,0 @@
-_
-    gp_a
-    gates_vacuum_tubing
-    gp_a
-    gates_vacuum_tubing
-    gp_a

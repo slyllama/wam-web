@@ -1,8 +1,0 @@
-{
-    "description": "Designed for air brake circuits according to SAE J 1402-A specs. Suitable for marine applications.",
-    "properties": [],
-    "specifications": "Code,ID (mm),OD (mm),WP (psi),BP (psi),Length (m)\nZ102-010,10,19,300,900,100\nZ102-013,13,22,300,900,100",
-    "subtitle": "10mm - 13mm (300psi)",
-    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/176/1689/air_brake__40054.1743626971.png?c=1",
-    "title": "Air Brake Hose"
-}

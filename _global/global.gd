@@ -1,5 +1,5 @@
 extends Node
-const DATA_ROOT := "res://web/"
+const DATA_ROOT := "user://web/"
 const HTML_ROOT := DATA_ROOT + "live/"
 const PAGES_ROOT := HTML_ROOT + "page/"
 

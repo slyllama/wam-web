@@ -1,8 +1,0 @@
-{
-    "description": "Used for saturated steam services at a max working pressure of 17bar in chemical plants, steel mills, refineries, shipyards and heavy industrial applications where high strength is required.",
-    "properties": [],
-    "specifications": "Code,ID (mm),OD (mm),WP (psi),Length (m),MBR (mm),(g/m)\nS3602-1052,13,25,17,30,180,551\nS3602-1053,16,28,17,30,200,647\nS3602-1055,19,32,17,30,240,742\nS3602-1057,25,38,17,30,300,971\nS3602-1058,32,46,17,30,400,1304\nS3602-1059,38,52,17,30,500,1633\nS3602-1060,51,67,17,30,600,2533",
-    "subtitle": "13mm - 51mm (17psi to 208&deg;c)",
-    "temp_img_path": "https://cdn11.bigcommerce.com/s-cst560l4iu/images/stencil/1280x1280/products/182/1695/steam_hose__81890.1743630120.png?c=1",
-    "title": "Steam Hose"
-}

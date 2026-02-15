@@ -1,9 +1,9 @@
 *.swp
 *.tmp
+*.x86_64
 
 .godot/
 build/
 web/live/category
 web/live/product
 web/live/page
-
