@@ -88,6 +88,7 @@ func _init() -> void:
 
 func _ready() -> void:
 	load_product_html_template()
+	load_category_html_template()
 	category_titles = get_category_titles()
 	
 	# Render scale on retina displays

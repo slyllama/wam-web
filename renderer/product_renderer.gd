@@ -57,7 +57,7 @@ func render(data: Dictionary) -> void:
 			if _row_count != 0:
 				output += TextUtils.fmt("<td>", 3)
 				output += TextUtils.fmt("<input onchange='" + _cart_function + "' type='number' style='width: 40px;' value=0 min=0 id='"
-					+ _qty_number_id + "'/>", 4)
+					+ _qty_number_id + "'/><button style='margin-left: 0.15em;' onclick='" + _cart_function + "'>+</button>", 4)
 				output += TextUtils.fmt("</td>", 3)
 			else:
 				output += TextUtils.fmt("<td>Qty</td>", 3)

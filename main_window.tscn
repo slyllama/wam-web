@@ -89,6 +89,10 @@ autowrap_mode = 3
 layout_mode = 2
 text = "Render All"
 
+[node name="GenCodeAliases" type="Button" parent="Box/VBox" unique_id=505083216]
+layout_mode = 2
+text = "Generate Code Aliases"
+
 [node name="OpenDataFolder" type="Button" parent="Box/VBox" unique_id=1766722809]
 layout_mode = 2
 text = "Open Data Folder"
@@ -100,4 +104,5 @@ script = ExtResource("4_l06f4")
 [connection signal="pressed" from="Box/VBox/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
 [connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Box/VBox/RAButton" to="." method="_on_ra_button_pressed"]
+[connection signal="pressed" from="Box/VBox/GenCodeAliases" to="." method="_on_gen_code_aliases_pressed"]
 [connection signal="pressed" from="Box/VBox/OpenDataFolder" to="." method="_on_open_data_folder_pressed"]

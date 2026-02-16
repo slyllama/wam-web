@@ -60,3 +60,10 @@ func _on_ra_button_pressed() -> void:
 
 func _on_open_data_folder_pressed() -> void:
 	OS.shell_open(OS.get_user_data_dir())
+
+func _on_gen_code_aliases_pressed() -> void:
+	var code_alias_generator = load("res://alias_generator/alias_generator.tscn").instantiate()
+	add_child(code_alias_generator)
+	
+	await code_alias_generator.finished
+	code_alias_generator.queue_free()

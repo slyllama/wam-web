@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnns7bmfgi06a"]
+
+[ext_resource type="Script" uid="uid://cgxaeo22av177" path="res://alias_generator/alias_generator.gd" id="1_mt5kw"]
+
+[node name="AliasGenerator" type="Node" unique_id=235967956]
+script = ExtResource("1_mt5kw")
