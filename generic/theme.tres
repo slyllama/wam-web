@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bttmxnxyjfybw"]
 
 [ext_resource type="StyleBox" uid="uid://dw6g1t0ym2kbu" path="res://generic/button_normal.tres" id="1_37o18"]
+[ext_resource type="StyleBox" uid="uid://mp7tvpxi66k8" path="res://generic/input_style.tres" id="2_1c0d7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j2ja"]
 content_margin_left = 5.0
@@ -72,22 +73,6 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56vwn"]
-content_margin_left = 5.0
-content_margin_top = 7.0
-content_margin_right = 5.0
-content_margin_bottom = 7.0
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.6, 0.6, 0.6, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-
 [resource]
 Button/colors/font_color = Color(0.2, 0.2, 0.2, 1)
 Button/colors/icon_hover_color = Color(1, 1, 1, 1)
@@ -112,9 +97,12 @@ ListButton/styles/hover = SubResource("StyleBoxEmpty_7j2ja")
 ListButton/styles/normal = SubResource("StyleBoxEmpty_37o18")
 ListButton/styles/pressed = SubResource("StyleBoxEmpty_1c0d7")
 TextEdit/colors/caret_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
-TextEdit/colors/font_color = Color(0.3, 0.3, 0.3, 1)
+TextEdit/colors/font_color = Color(0.37, 0.37, 0.37, 1)
 TextEdit/colors/font_placeholder_color = Color(0.7, 0.7, 0.7, 1)
+TextEdit/colors/font_readonly_color = Color(0.55, 0.55, 0.55, 1)
 TextEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+TextEdit/constants/line_spacing = 1
 TextEdit/font_sizes/font_size = 13
 TextEdit/styles/focus = SubResource("StyleBoxFlat_1c0d7")
-TextEdit/styles/normal = SubResource("StyleBoxFlat_56vwn")
+TextEdit/styles/normal = ExtResource("2_1c0d7")
+TextEdit/styles/read_only = ExtResource("2_1c0d7")

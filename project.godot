@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="WAM"
+config/name="WAM Catalogue Tools"
 run/main_scene="uid://cruv3xthhkura"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="wam"

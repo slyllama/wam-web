@@ -22,5 +22,5 @@ func _ready() -> void:
 	alias_file.store_string("codeAliases = " + JSON.stringify(alias) + ";")
 	alias_file.close()
 	
-	print("Generated code aliases.")
+	Global.pconsole("Generated code aliases.")
 	finished.emit()

@@ -9,7 +9,7 @@ extends Node
 func render() -> void:
 	var source_path = Global.DATA_ROOT + "_" + page_id + ".html"
 	if !FileAccess.file_exists(source_path):
-		print("No page source found for '" + page_id + "', skipping this one.")
+		Global.pconsole("No page source found for '" + page_id + "', skipping this one.")
 		queue_free()
 		return
 	

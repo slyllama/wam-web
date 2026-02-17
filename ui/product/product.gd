@@ -35,9 +35,7 @@ func load_file() -> void:
 		var _json_parse = JSON.parse_string(_f.get_as_text())
 		_f.close()
 		
-		if !_json_parse:
-			print("JSON error.")
-			return
+		if !_json_parse: return
 		data = _json_parse
 	file_loaded = true
 

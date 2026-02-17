@@ -4,11 +4,11 @@ extends Node
 
 func save_to_html(html_text: String) -> void:
 	if !id:
-		print("Error saving to HTML: no ID assigned.")
+		Global.pconsole("Error saving to HTML: no ID assigned.")
 		return
 	var path := Global.PRODUCT_HTML_PATH + id + "/"
 	if !DirAccess.dir_exists_absolute(path):
-		DirAccess.make_dir_absolute(path)
+		DirAccess.make_dir_recursive_absolute(path)
 	var _f = FileAccess.open(path + "index.html", FileAccess.WRITE)
 	_f.store_string(html_text)
 	_f.close()
@@ -17,7 +17,7 @@ func render(data: Dictionary) -> void:
 	Global.load_product_html_template()
 	
 	var output := ""
-	output += TextUtils.fmt("<div><code class='product-id-debug'>" + id + "</code></div>")
+	output += TextUtils.fmt("<div><code class='product-id-debug'>(" + id + ")</code></div>")
 	if "title" in data:
 		output += TextUtils.fmt(data.title + "<span style='font-weight: normal;'> &mdash; " + data.subtitle + "</span>", 0, "h1")
 	if "description" in data:
@@ -70,6 +70,5 @@ func render(data: Dictionary) -> void:
 	var html_output = TextUtils.add_line_to_template(output, Global.product_html_template, "$CONTENT")
 	if "title" in data:
 		html_output = html_output.replace("$TITLE", data.title)
-	if "temp_img_path" in data:
-		html_output = html_output.replace("$IMG_PATH", data.temp_img_path)
+	html_output = html_output.replace("$IMG_PATH", "../../prodimg/" + id + ".jpg")
 	save_to_html(html_output)

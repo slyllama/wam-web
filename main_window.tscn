@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://bwqywb14a0rlx" path="res://main_window.gd" id="1_n7l54"]
 [ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="2_tyee0"]
 [ext_resource type="StyleBox" uid="uid://bvumn4v34aqfe" path="res://generic/category_list_container.tres" id="3_sq7ho"]
+[ext_resource type="FontFile" uid="uid://od3sv7w5otjs" path="res://generic/fonts/intel_one_mono.ttf" id="4_bfu0d"]
+[ext_resource type="StyleBox" uid="uid://mp7tvpxi66k8" path="res://generic/input_style.tres" id="4_iwhwg"]
 [ext_resource type="Script" uid="uid://b31djlpr60fey" path="res://scripts/render_all.gd" id="4_l06f4"]
+[ext_resource type="Script" uid="uid://3g0r6qfv8p1p" path="res://debug_console.gd" id="5_iwhwg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w8ba"]
 content_margin_left = 16.0
@@ -36,8 +39,10 @@ layout_mode = 2
 text = "Click a category to view and edit its contents. Modify a category by editing text files in the 'category_data' folder."
 autowrap_mode = 3
 
-[node name="CategoryListContainer" type="PanelContainer" parent="Box/VBox" unique_id=654322714]
+[node name="CategoryListContainer" type="ScrollContainer" parent="Box/VBox" unique_id=1264684128]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
+size_flags_vertical = 0
 theme_override_styles/panel = ExtResource("3_sq7ho")
 
 [node name="CategoryList" type="VBoxContainer" parent="Box/VBox/CategoryListContainer" unique_id=2116049069]
@@ -97,9 +102,27 @@ text = "Generate Code Aliases"
 layout_mode = 2
 text = "Open Data Folder"
 
+[node name="DebugConsole" type="RichTextLabel" parent="Box/VBox" unique_id=984863848]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
+theme_override_constants/line_separation = -4
+theme_override_fonts/normal_font = ExtResource("4_bfu0d")
+theme_override_font_sizes/normal_font_size = 13
+theme_override_styles/normal = ExtResource("4_iwhwg")
+bbcode_enabled = true
+text = "-- WAM Catalogue Tools --
+"
+scroll_active = false
+scroll_following = true
+autowrap_mode = 0
+script = ExtResource("5_iwhwg")
+
 [node name="RenderAll" type="Node" parent="." unique_id=1016224602]
 unique_name_in_owner = true
 script = ExtResource("4_l06f4")
+
+[node name="Timer" type="Timer" parent="." unique_id=1569820991]
 
 [connection signal="pressed" from="Box/VBox/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
 [connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]

@@ -2,23 +2,24 @@ extends Node
 const DATA_ROOT := "user://web/"
 const HTML_ROOT := DATA_ROOT + "live/"
 const PAGES_ROOT := HTML_ROOT + "page/"
-
 const PRODUCT_DATA_PATH := DATA_ROOT + "product_data/"
 const PRODUCT_HTML_PATH := HTML_ROOT + "product/"
 const PRODUCT_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_product.html"
-
 const CATEGORY_DATA_PATH := DATA_ROOT + "category_data/"
 const CATEGORY_HTML_PATH := HTML_ROOT + "category/"
 const CATEGORY_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_category.html"
-
 const RETINA_SCALE_FACTOR = 1.5
 
 signal status_updated(status: String)
+signal printed_to_console(string: String)
 
 var product_html_template := ""
 var category_html_template := ""
-
 var category_titles := {}
+
+func pconsole(string: String) -> void:
+	print(string)
+	printed_to_console.emit(string)
 
 func get_category_titles() -> Dictionary:
 	var _page_titles := {}
