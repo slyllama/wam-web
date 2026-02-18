@@ -87,7 +87,10 @@ func _ready() -> void:
 		output += "</a>\n"
 		output += TextUtils.fmt("</p>", 2)
 		if "subtitle" in data:
-			output += TextUtils.fmt("<p class='product-subtitle'>" + data.subtitle + "</p>", 2)
+			var subtitle: String = data.subtitle
+			if "(check)" in subtitle:
+				subtitle = "<span style='background: #FFFF00'>&thinsp;(Check product)&thinsp;</span>"
+			output += TextUtils.fmt("<p class='product-subtitle'>" + subtitle + "</p>", 2)
 		output += TextUtils.fmt("</div>", 1)
 	output += "</div>\n"
 	
