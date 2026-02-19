@@ -13,13 +13,19 @@ func save_to_html(html_text: String) -> void:
 	_f.store_string(html_text)
 	_f.close()
 
+func idt(num := 1) -> String:
+	var output := ""
+	for n in num:
+		output += TextUtils.INDENT
+	return(output)
+
 func render(data: Dictionary) -> void:
 	Global.load_product_html_template()
 	
 	var output := ""
 	output += TextUtils.fmt("<div><code class='product-id-debug'>(" + id + ")</code></div>")
 	if "title" in data:
-		output += TextUtils.fmt(data.title + "<span style='font-weight: normal;'> &mdash; " + data.subtitle + "</span>", 0, "h1")
+		output += TextUtils.fmt(data.title, 0, "h1")
 	if "description" in data:
 		output += TextUtils.fmt(data.description, 0, "p")
 	if "properties" in data:
@@ -42,11 +48,19 @@ func render(data: Dictionary) -> void:
 			for _row in _rows:
 				var _code: String = _row.split(",")[0]
 				var _qty_number_id: String = "product-qty--" + _code
-				var _cart_function: String = ("addToCart(\""
+				var _qty_ele: String = "document.getElementById(`" + _qty_number_id + "`)"
+				var _cart_function: String = ("\n" + idt(5) + "addToCart(\""
 					+ _code + "\", \""
 					+ id + "\", \""
 					+ data.title + "\", "
-					+ "document.getElementById(`" + _qty_number_id + "`).value);")
+					+ _qty_ele + ".value);")
+				
+				var _add_to_cart: String = (
+					_qty_ele + ".value = Number(" + _qty_ele + ".value) + 1;"
+					+ _cart_function + "\n" + idt(4))
+				var _subtract_from_cart: String = (
+					_qty_ele + ".value = Number(" + _qty_ele + ".value) - 1;"
+					+ _cart_function + "\n" + idt(4))
 				
 				output += TextUtils.fmt("<tr id='row--" + _code + "'>", 2)
 				var _columns = _row.split(",")
@@ -57,8 +71,10 @@ func render(data: Dictionary) -> void:
 					output += TextUtils.fmt(_column, 3, "td")
 				if _row_count != 0:
 					output += TextUtils.fmt("<td>", 3)
-					output += TextUtils.fmt("<input onchange='" + _cart_function + "' type='number' style='width: 40px;' value=0 min=0 id='"
-						+ _qty_number_id + "'/><button style='margin-left: 0.15em;' onclick='" + _cart_function + "'>+</button>", 4)
+					output += TextUtils.fmt("<input onchange='" + _cart_function + "\n" + idt(4) + "' type='number' style='width: 40px;' value=0 min=0 id='"
+						+ _qty_number_id + "'/>", 4)
+					output += TextUtils.fmt("<button style='width: 22px; margin-left: 0.15em;' onclick='" + _subtract_from_cart + "'>-</button>", 4)
+					output += TextUtils.fmt("<button style='width: 22px;' onclick='" + _add_to_cart + "'>+</button>", 4)
 					output += TextUtils.fmt("</td>", 3)
 				else:
 					output += TextUtils.fmt("<td>Qty</td>", 3)
@@ -67,6 +83,17 @@ func render(data: Dictionary) -> void:
 				
 			output += TextUtils.INDENT + "</tbody></table>\n"
 			output += "</div>\n"
+			
+			# Cart info
+			output += "<div class='info'><p>Your can email your list of selected products to your local branch for processing and payment. <a href='../../page/cart'>View your list now.</a></p></div>"
+			
+			# Add compatibility chart
+			var _cpath := Global.DATA_ROOT + "_template_chem.html"
+			if FileAccess.file_exists(_cpath):
+				var _cf = FileAccess.open(_cpath, FileAccess.READ)
+				var _d = _cf.get_as_text()
+				_cf.close()
+				output += _d.replace("\n", "")
 	
 	var html_output = TextUtils.add_line_to_template(output, Global.product_html_template, "$CONTENT")
 	if "title" in data:
