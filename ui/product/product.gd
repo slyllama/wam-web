@@ -154,6 +154,7 @@ func _on_format_spec_table_pressed() -> void:
 	%SpecTable.text = %SpecTable.text.replace("Burst Pressure (psi)", "BP (psi)")
 	%SpecTable.text = %SpecTable.text.replace("Coil Length(s) (m)", "Length (m)")
 	%SpecTable.text = %SpecTable.text.replace("Min Bend Radius (mm)", "MBR (mm)")
+	%SpecTable.text = %SpecTable.text.replace(" inch", "inch")
 
 func _on_remove_end_column_pressed() -> void:
 	var csv: Array = %SpecTable.text.split("\n")

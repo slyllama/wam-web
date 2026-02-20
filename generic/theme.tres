@@ -51,11 +51,14 @@ corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7j2ja"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56vwn"]
+content_margin_left = 1.0
+content_margin_top = 3.0
+content_margin_right = 1.0
+content_margin_bottom = 3.0
+bg_color = Color(0.9, 0.9, 0.9, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37o18"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1c0d7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c0d7"]
 content_margin_left = 5.0
@@ -93,9 +96,9 @@ ListButton/base_type = &"Button"
 ListButton/colors/font_color = Color(0.2, 0.2, 0.2, 1)
 ListButton/colors/font_hover_color = Color(0, 0, 0, 1)
 ListButton/colors/font_pressed_color = Color(0, 0, 0, 1)
-ListButton/styles/hover = SubResource("StyleBoxEmpty_7j2ja")
+ListButton/styles/hover = SubResource("StyleBoxFlat_56vwn")
 ListButton/styles/normal = SubResource("StyleBoxEmpty_37o18")
-ListButton/styles/pressed = SubResource("StyleBoxEmpty_1c0d7")
+ListButton/styles/pressed = SubResource("StyleBoxFlat_56vwn")
 TextEdit/colors/caret_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
 TextEdit/colors/font_color = Color(0.37, 0.37, 0.37, 1)
 TextEdit/colors/font_placeholder_color = Color(0.7, 0.7, 0.7, 1)

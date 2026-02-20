@@ -32,7 +32,13 @@ func render_all() -> void:
 		_pr.queue_free()
 	Global.status_updated.emit("All product HTML rendered.")
 
+var selected: Button
+
 func populate() -> void:
+	var last_id := ""
+	if selected:
+		last_id = selected.text
+	
 	for _n in $Box.get_children():
 		_n.queue_free()
 	
@@ -43,16 +49,37 @@ func populate() -> void:
 	
 	for _id in _p:
 		var _b = Button.new()
+		
+		if _id == last_id:
+			selected = _b
+		
 		_b.text = _id
 		_b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		_b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_b.theme_type_variation = "ListButton"
+		_b.add_theme_color_override("font_color", Color("333333"))
+		_b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+		_b.set_meta("this_is_a_list_woohoo", true)
 		_b.pressed.connect(func():
-			id_clicked.emit(_id))
+			_b.add_theme_stylebox_override("normal", load("res://generic/button_selected.tres"))
+			_b.add_theme_color_override("font_color", Color("#FFFFFF"))
+			id_clicked.emit(_id)
+			await get_tree().process_frame
+			selected = _b)
 		$Box.add_child(_b)
 		
 		if !FileAccess.file_exists(Global.PRODUCT_DATA_PATH + _id + ".json"):
 			_b.add_theme_color_override("font_color", Color("ccccccff"))
+	# Reselect on reload
+	if selected:
+		selected.add_theme_stylebox_override("normal", load("res://generic/button_selected.tres"))
+		selected.add_theme_color_override("font_color", Color("#FFFFFF"))
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("left_click") and get_window().gui_get_hovered_control():
+		if selected and get_window().gui_get_hovered_control().has_meta("this_is_a_list_woohoo"):
+			selected.add_theme_color_override("font_color", Color("333333"))
+			selected.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 
 func _ready() -> void:
 	populate()

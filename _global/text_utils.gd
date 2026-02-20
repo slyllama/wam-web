@@ -11,7 +11,8 @@ const SUBS = {
 	"mbr_mm": "MBR (mm)",
 	"weight_kg": "(kg/m)",
 	"Thread": "Thread Type",
-	"Slip-on": "Slip On"
+	"Slip-on": "Slip On",
+	"inch": "&Prime;"
 }
 
 func format_temp_range(temp_range: String) -> String:
