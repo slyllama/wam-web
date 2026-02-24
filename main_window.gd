@@ -46,7 +46,7 @@ func render_categories() -> void:
 		%CategoryList.add_child(_b)
 
 func _ready() -> void:
-	get_window().size.x = floori(400.0 * get_window().content_scale_factor)
+	get_window().size.x = floori(700.0 * get_window().content_scale_factor)
 	render_categories()
 	Global.pconsole("Ready.")
 

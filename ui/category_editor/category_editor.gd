@@ -8,7 +8,6 @@ const CategoryRenderer = preload("res://renderer/category_renderer.gd")
 func _ready() -> void:
 	%List.id_list = list
 	%List.populate()
-	get_window().size.x = floori(800 * get_window().content_scale_factor)
 
 func _on_list_id_clicked(id: String) -> void:
 	%Product.id = id

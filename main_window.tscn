@@ -92,6 +92,7 @@ autowrap_mode = 3
 
 [node name="RAButton" type="Button" parent="Box/VBox" unique_id=1968743768]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tyee0")
 text = "Render All"
 
 [node name="GenCodeAliases" type="Button" parent="Box/VBox" unique_id=505083216]
@@ -113,7 +114,6 @@ theme_override_styles/normal = ExtResource("4_iwhwg")
 bbcode_enabled = true
 text = "-- WAM Catalogue Tools --
 "
-scroll_active = false
 scroll_following = true
 autowrap_mode = 0
 script = ExtResource("5_iwhwg")

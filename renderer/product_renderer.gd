@@ -2,6 +2,8 @@ extends Node
 
 @export var id := "" # pass ID so that you can save to HTML file
 
+signal needs_checking
+
 func save_to_html(html_text: String) -> void:
 	if !id:
 		Global.pconsole("Error saving to HTML: no ID assigned.")
@@ -26,6 +28,10 @@ func render(data: Dictionary) -> void:
 	output += TextUtils.fmt("<div><code class='product-id-debug'>(" + id + ")</code></div>")
 	if "title" in data:
 		output += TextUtils.fmt(data.title, 0, "h1")
+	if "subtitle" in data:
+		if data.subtitle == "(check)":
+			Global.pconsole("[color=#BA5B1C] (!) " + id + " needs checking.[/color]")
+			needs_checking.emit()
 	if "description" in data:
 		output += TextUtils.fmt(data.description, 0, "p")
 	if "properties" in data:

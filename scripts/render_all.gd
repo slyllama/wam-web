@@ -5,6 +5,7 @@ const CategoryRenderer = preload("res://renderer/category_renderer.gd")
 
 var missing := 0
 var total := 0
+var total_needs_checking := 0
 
 func get_product_data(file: String) -> Dictionary:
 	var _path = Global.PRODUCT_DATA_PATH + file
@@ -24,6 +25,8 @@ func render_all() -> void:
 		var id: String = file.replace(".json", "")
 		var _pr = ProductRenderer.new()
 		_pr.id = id
+		_pr.needs_checking.connect(func():
+			total_needs_checking += 1)
 		add_child(_pr)
 		_pr.render(get_product_data(file))
 		_pr.queue_free()
@@ -51,3 +54,6 @@ func render_all() -> void:
 	Global.pconsole("[color=red]" + str(missing)
 		+ " objects(s) are listed without data.\n("
 		+ str(snapped(complete_value, 1)) + "% complete).[/color]")
+	if total_needs_checking > 0:
+		Global.pconsole("[color=red]" + str(total_needs_checking)
+			+ " need checking.[/color]")
