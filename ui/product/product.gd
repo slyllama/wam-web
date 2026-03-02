@@ -159,6 +159,7 @@ func _on_format_spec_table_pressed() -> void:
 	%SpecTable.text = %SpecTable.text.replace(" inch", "inch")
 	%SpecTable.text = %SpecTable.text.replace("\"", "inch")
 	%SpecTable.text = %SpecTable.text.replace("Bend Radius", "MBR")
+	%SpecTable.text = %SpecTable.text.replace("°", "&deg;")
 
 func _on_remove_end_column_pressed() -> void:
 	var csv: Array = %SpecTable.text.split("\n")
@@ -171,3 +172,8 @@ func _on_remove_end_column_pressed() -> void:
 		output += "\n"
 	output = output.rstrip("\n")
 	%SpecTable.text = output
+
+func _on_eng_service_pressed() -> void:
+	%Title.text = "Engineering Services"
+	%SpecTable.text = "Code\nENGINEERING"
+	%ImagePath.grab_focus()

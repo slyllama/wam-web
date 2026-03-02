@@ -41,6 +41,10 @@ custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 0)
 
+[node name="EngService" type="Button" parent="Box" unique_id=2085291786]
+layout_mode = 2
+text = "Engineering Service"
+
 [node name="TitleBox" type="HBoxContainer" parent="Box" unique_id=1557667159]
 layout_mode = 2
 
@@ -161,6 +165,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Save and Render"
 
+[connection signal="pressed" from="Box/EngService" to="." method="_on_eng_service_pressed"]
 [connection signal="pressed" from="Box/PropertiesBox/AddProperty" to="." method="_on_add_property_pressed"]
 [connection signal="pressed" from="Box/SpecTableBox/RemoveEndColumn" to="." method="_on_remove_end_column_pressed"]
 [connection signal="pressed" from="Box/SpecTableBox/FormatSpecTable" to="." method="_on_format_spec_table_pressed"]
