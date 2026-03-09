@@ -104,5 +104,9 @@ func render(data: Dictionary) -> void:
 	var html_output = TextUtils.add_line_to_template(output, Global.product_html_template, "$CONTENT")
 	if "title" in data:
 		html_output = html_output.replace("$TITLE", data.title)
-	html_output = html_output.replace("$IMG_PATH", "../../prodimg/" + id + ".jpg")
+	if "placeholder_img" in data:
+		if data.placeholder_img == "true":
+			html_output = html_output.replace("$IMG_PATH", "../../img/unknown.png")
+		else: html_output = html_output.replace("$IMG_PATH", "../../prodimg/" + id + ".jpg")
+	else: html_output = html_output.replace("$IMG_PATH", "../../prodimg/" + id + ".jpg")
 	save_to_html(html_output)

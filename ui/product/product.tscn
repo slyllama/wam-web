@@ -16,6 +16,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 1
 border_color = Color(0.7, 0.7, 0.7, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81gfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ydefx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mwhui"]
+
 [node name="Product" type="ScrollContainer" unique_id=1551734460]
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,10 +46,6 @@ text = "ID"
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(0.012617188, 0.012617188, 0.012617188, 0)
-
-[node name="EngService" type="Button" parent="Box" unique_id=2085291786]
-layout_mode = 2
-text = "Engineering Service"
 
 [node name="TitleBox" type="HBoxContainer" parent="Box" unique_id=1557667159]
 layout_mode = 2
@@ -87,9 +89,30 @@ theme_override_colors/font_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
 placeholder_text = "(Temporary image URL until mirrored)"
 select_all_on_focus = true
 
+[node name="PlaceholderImg" type="CheckBox" parent="Box/ImagePathBox" unique_id=421896955]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_81gfy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ydefx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwhui")
+text = "Placeholder"
+
 [node name="DescriptionTitle" type="Label" parent="Box" unique_id=1644909045]
 layout_mode = 2
 text = "Description"
+
+[node name="Actions" type="HBoxContainer" parent="Box" unique_id=129154936]
+layout_mode = 2
+
+[node name="EngService" type="Button" parent="Box/Actions" unique_id=2085291786]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Engineering Service"
+
+[node name="GenList" type="Button" parent="Box/Actions" unique_id=530593915]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Generate List"
 
 [node name="Description" type="TextEdit" parent="Box" unique_id=918553165]
 unique_name_in_owner = true
@@ -165,7 +188,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Save and Render"
 
-[connection signal="pressed" from="Box/EngService" to="." method="_on_eng_service_pressed"]
+[connection signal="pressed" from="Box/Actions/EngService" to="." method="_on_eng_service_pressed"]
+[connection signal="pressed" from="Box/Actions/GenList" to="." method="_on_gen_list_pressed"]
 [connection signal="pressed" from="Box/PropertiesBox/AddProperty" to="." method="_on_add_property_pressed"]
 [connection signal="pressed" from="Box/SpecTableBox/RemoveEndColumn" to="." method="_on_remove_end_column_pressed"]
 [connection signal="pressed" from="Box/SpecTableBox/FormatSpecTable" to="." method="_on_format_spec_table_pressed"]

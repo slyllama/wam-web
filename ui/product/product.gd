@@ -57,6 +57,9 @@ func apply_changes() -> void: # TODO: try and keep the same order as populate()
 	data.description = %Description.text
 	data.specifications = %SpecTable.text
 	data.temp_img_path = %ImagePath.text
+	if %PlaceholderImg.button_pressed == true:
+		data.placeholder_img = "true"
+	else: data.placeholder_img = "false"
 	
 	var _properties = []
 	for _p in %Properties.get_children():
@@ -79,6 +82,11 @@ func populate(clear := true) -> void:
 	if "description" in data: %Description.text = data.description
 	if "subtitle" in data: %Subtitle.text = data.subtitle
 	if "temp_img_path" in data: %ImagePath.text = data.temp_img_path
+	if "placeholder_img" in data:
+		if data.placeholder_img == "true":
+			%PlaceholderImg.button_pressed = true
+		else: %PlaceholderImg.button_pressed = false
+	else: %PlaceholderImg.button_pressed = false
 	if "properties" in data:
 		var _properties = data.properties
 		for _p in _properties:
@@ -177,3 +185,16 @@ func _on_eng_service_pressed() -> void:
 	%Title.text = "Engineering Services"
 	%SpecTable.text = "Code\nENGINEERING"
 	%ImagePath.grab_focus()
+
+func _on_gen_list_pressed() -> void:
+	var text: String = $%Description.text
+	var output := "<ul>"
+	for line in text.split("\n"):
+		var _l: Array = line.split(":")
+		if _l.size() > 1:
+			output += "<li><b>" + _l[0] + "</b> " + _l[1] + "</li>"
+		else:
+			output += "<li>" + _l[0] + "</li>"
+	output += "</ul>"
+	output = output.replace("\"", "&Prime;")
+	%Description.text = output

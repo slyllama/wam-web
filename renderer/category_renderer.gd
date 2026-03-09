@@ -70,11 +70,13 @@ func _ready() -> void:
 		
 		# Get image
 		var _img_src: String = "../../prodimg/" + product + ".jpg"
-		#if "temp_img_path" in data:
-			#_img_src = data.temp_img_path
+		if "placeholder_img" in data:
+			if data.placeholder_img == "true":
+				_img_src = "../../img/unknown.png"
 		
 		output += TextUtils.fmt("<div>", 1)
 		output += TextUtils.fmt("<a href='../../product/" + product + "'>", 2)
+		
 		output += TextUtils.fmt("<img alt='' class='product-image' loading='lazy' src='" + _img_src + "' />", 3)
 		output += TextUtils.fmt("<div class='product-details-btn'><div>Details</div></div>", 3)
 		output += TextUtils.fmt("</a>", 2)
@@ -89,7 +91,7 @@ func _ready() -> void:
 		if "subtitle" in data:
 			var subtitle: String = data.subtitle
 			if "(check)" in subtitle:
-				subtitle = "<span style='background: #FFFF00'>&thinsp;(Check product)&thinsp;</span>"
+				subtitle = "<span style='color: #943929;'>*</span>"
 			output += TextUtils.fmt("<p class='product-subtitle'>" + subtitle + "</p>", 2)
 		output += TextUtils.fmt("</div>", 1)
 	output += "</div>\n"
