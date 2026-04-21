@@ -43,6 +43,7 @@ func _on_render_category_pressed() -> void:
 	_cr.queue_free()
 	
 	Global.status_updated.emit("Category HTML rendered.")
+	Global.write_to_log("[Category] rendered '" + category_id + "'.")
 
 func _on_category_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_window.tscn")

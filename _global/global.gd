@@ -1,5 +1,6 @@
 extends Node
-const DATA_ROOT := "user://web/"
+const DATA_ROOT := "\\\\PIPE-PC40\\hoseshop-web\\"
+#const DATA_ROOT := "user://web/"
 const HTML_ROOT := DATA_ROOT + "live/"
 const PAGES_ROOT := HTML_ROOT + "page/"
 const PRODUCT_DATA_PATH := DATA_ROOT + "product_data/"
@@ -8,6 +9,7 @@ const PRODUCT_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_product.html"
 const CATEGORY_DATA_PATH := DATA_ROOT + "category_data/"
 const CATEGORY_HTML_PATH := HTML_ROOT + "category/"
 const CATEGORY_HTML_TEMPLATE_PATH := DATA_ROOT + "_template_category.html"
+const LOG_PATH := DATA_ROOT + "log.txt"
 const RETINA_SCALE_FACTOR = 1.5
 
 signal status_updated(status: String)
@@ -81,7 +83,25 @@ func _fill_dir(dir: String) -> void: # creates a directory, but only if it doesn
 	if !DirAccess.dir_exists_absolute(dir):
 		DirAccess.make_dir_absolute(dir)
 
+func write_to_log(string: String) -> void:
+	var current_text := ""
+	if FileAccess.file_exists(LOG_PATH):
+		var _f := FileAccess.open(LOG_PATH, FileAccess.READ)
+		current_text = _f.get_as_text()
+		_f.close()
+	var _g := FileAccess.open(LOG_PATH, FileAccess.WRITE)
+	print(LOG_PATH)
+	print(_g)
+	_g.store_string(current_text
+		+ "\n["
+		+ str(Time.get_datetime_string_from_system().replace("T", " "))
+		+ "] "
+		+ string)
+	_g.close()
+
 func _init() -> void:
+	print(OS.get_executable_path().get_base_dir())
+	
 	# Set up directories
 	_fill_dir(PRODUCT_DATA_PATH)
 	_fill_dir(PRODUCT_HTML_PATH)

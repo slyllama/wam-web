@@ -149,6 +149,7 @@ func _on_render_pressed() -> void:
 	
 	await get_tree().process_frame
 	Global.status_updated.emit("Rendered.")
+	Global.write_to_log("[Product] rendered '" + id + "'.")
 
 func _on_format_spec_table_pressed() -> void:
 	%SpecTable.text = %SpecTable.text.replace(" \t", ",")
