@@ -4,6 +4,28 @@ extends Node
 
 signal needs_checking
 
+const ICON_PATH := "../../img/"
+
+const ICON_SUBS: Dictionary[String, String] = {
+	"Code": "code",
+	"Size (mm)": "size",
+	"Size (imp)": "size",
+	"Size": "size",
+	"ID (imp.)": "id",
+	"ID (mm)": "id",
+	"OD (mm)": "od",
+	"WP (bar)": "wp",
+	"WP (psi)": "wp",
+	"BP (bar)": "bp",
+	"BP (psi)": "bp",
+	"Length (m)": "size",
+	"MBR (mm)": "mbr",
+	"Mass (g/m)": "weight",
+	"(kg/m)": "weight",
+	"Weight (kg/m)": "weight",
+	"Wall (mm)": "size"
+}
+
 func save_to_html(html_text: String) -> void:
 	if !id:
 		Global.pconsole("Error saving to HTML: no ID assigned.")
@@ -74,7 +96,19 @@ func render(data: Dictionary) -> void:
 					for _s in TextUtils.SUBS:
 						if _s in _column:
 							_column = _column.replace(_s, TextUtils.SUBS[_s])
-					output += TextUtils.fmt(_column, 3, "td")
+					
+					# TODO: Add icon
+					if _row_count == 0:
+						var _icon_src := ICON_PATH + "spec-blank.png"
+						if _column in ICON_SUBS:
+							_icon_src = ICON_PATH + "spec-" + ICON_SUBS[_column] + ".png"
+						_column = ("<img style='margin-right: 0.5em; height: 32px; width: auto; padding-top: 4px;' src='"
+							+ _icon_src
+							+ "'/><span style='vertical-align: center;'>"
+							+ _column + "</span>")
+						output += TextUtils.fmt(_column, 3, "td")
+					else: output += TextUtils.fmt(_column, 3, "td")
+				
 				if _row_count != 0:
 					output += TextUtils.fmt("<td>", 3)
 					output += TextUtils.fmt("<input onchange='" + _cart_function + "\n" + idt(4) + "' type='number' style='width: 40px;' value=0 min=0 id='"
@@ -83,7 +117,9 @@ func render(data: Dictionary) -> void:
 					output += TextUtils.fmt("<button style='width: 22px;' onclick='" + _add_to_cart + "'>+</button>", 4)
 					output += TextUtils.fmt("</td>", 3)
 				else:
-					output += TextUtils.fmt("<td>Qty</td>", 3)
+					output += TextUtils.fmt(("<img style='margin-right: 0.5em; height: 32px; width: auto; padding-top: 4px;' src='"
+							+ ICON_PATH + "spec-blank.png"
+							+ "'/><span style='vertical-align: center;'>Qty</span>"), 3, "td")
 				output += TextUtils.fmt("</tr>", 2)
 				_row_count += 1
 				
