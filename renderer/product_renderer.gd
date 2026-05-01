@@ -10,7 +10,10 @@ const ICON_SUBS: Dictionary[String, String] = {
 	"Code": "code",
 	"Size (mm)": "size",
 	"Size (imp)": "size",
+	"Size (imp.)": "size",
 	"Size": "size",
+	"Inlet (imp)": "size",
+	"Outlet (imp)": "size",
 	"ID (imp.)": "id",
 	"ID (mm)": "id",
 	"OD (mm)": "od",
@@ -18,12 +21,21 @@ const ICON_SUBS: Dictionary[String, String] = {
 	"WP (psi)": "wp",
 	"BP (bar)": "bp",
 	"BP (psi)": "bp",
-	"Length (m)": "size",
+	"Length (m)": "length",
+	"Length (mm)": "length",
+	"Coils (m)": "length",
 	"MBR (mm)": "mbr",
 	"Mass (g/m)": "weight",
 	"(kg/m)": "weight",
 	"Weight (kg/m)": "weight",
-	"Wall (mm)": "size"
+	"Weight (g/m)": "weight",
+	"Capacity (kg)": "weight",
+	"Wall (mm)": "wall",
+	"Wall Thickness (mm)": "wall",
+	"Suction (mm Hg)": "vacuum",
+	"Thread Type": "thread",
+	"Note": "note",
+	"Description": "note"
 }
 
 func save_to_html(html_text: String) -> void:
@@ -102,9 +114,9 @@ func render(data: Dictionary) -> void:
 						var _icon_src := ICON_PATH + "spec-blank.png"
 						if _column in ICON_SUBS:
 							_icon_src = ICON_PATH + "spec-" + ICON_SUBS[_column] + ".png"
-						_column = ("<img style='margin-right: 0.5em; height: 32px; width: auto; padding-top: 4px;' src='"
+						_column = ("<img style='margin-top: -3px; margin-right: 0.5em; height: 32px; width: auto; padding-top: 4px;' src='"
 							+ _icon_src
-							+ "'/><span style='vertical-align: center;'>"
+							+ "'/><span style='vertical-align: middle; height: 100%;'>"
 							+ _column + "</span>")
 						output += TextUtils.fmt(_column, 3, "td")
 					else: output += TextUtils.fmt(_column, 3, "td")
@@ -119,7 +131,7 @@ func render(data: Dictionary) -> void:
 				else:
 					output += TextUtils.fmt(("<img style='margin-right: 0.5em; height: 32px; width: auto; padding-top: 4px;' src='"
 							+ ICON_PATH + "spec-blank.png"
-							+ "'/><span style='vertical-align: center;'>Qty</span>"), 3, "td")
+							+ "'/><span style='vertical-align: middle;'>Qty</span>"), 3, "td")
 				output += TextUtils.fmt("</tr>", 2)
 				_row_count += 1
 				
