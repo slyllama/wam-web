@@ -19,6 +19,8 @@ var product_html_template := ""
 var category_html_template := ""
 var category_titles := {}
 
+var first_run := false
+
 func pconsole(string: String) -> void:
 	print(string)
 	printed_to_console.emit(string)

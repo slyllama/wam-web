@@ -47,3 +47,6 @@ func _on_render_category_pressed() -> void:
 
 func _on_category_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_window.tscn")
+
+func _on_data_folder_pressed() -> void:
+	OS.shell_open(OS.get_user_data_dir())

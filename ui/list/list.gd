@@ -58,10 +58,12 @@ func populate() -> void:
 		_b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_b.theme_type_variation = "ListButton"
 		_b.add_theme_color_override("font_color", Color("333333"))
-		_b.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+		_b.add_theme_stylebox_override("normal", load("res://generic/listbutton_normal.tres"))
+		_b.add_theme_stylebox_override("hover", load("res://generic/listbutton_hover.tres"))
+		_b.add_theme_stylebox_override("pressed", load("res://generic/listbutton_selected.tres"))
 		_b.set_meta("this_is_a_list_woohoo", true)
 		_b.pressed.connect(func():
-			_b.add_theme_stylebox_override("normal", load("res://generic/button_selected.tres"))
+			_b.add_theme_stylebox_override("normal", load("res://generic/listbutton_selected.tres"))
 			_b.add_theme_color_override("font_color", Color("#FFFFFF"))
 			id_clicked.emit(_id)
 			await get_tree().process_frame
@@ -72,14 +74,14 @@ func populate() -> void:
 			_b.add_theme_color_override("font_color", Color("ccccccff"))
 	# Reselect on reload
 	if selected:
-		selected.add_theme_stylebox_override("normal", load("res://generic/button_selected.tres"))
+		selected.add_theme_stylebox_override("normal", load("res://generic/listbutton_selected.tres"))
 		selected.add_theme_color_override("font_color", Color("#FFFFFF"))
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("left_click") and get_window().gui_get_hovered_control():
 		if selected and get_window().gui_get_hovered_control().has_meta("this_is_a_list_woohoo"):
 			selected.add_theme_color_override("font_color", Color("333333"))
-			selected.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+			selected.add_theme_stylebox_override("normal", load("res://generic/listbutton_normal.tres"))
 
 func _ready() -> void:
 	populate()

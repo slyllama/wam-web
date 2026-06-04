@@ -17,7 +17,7 @@ const SUBS = {
 
 func format_temp_range(temp_range: String) -> String:
 	var _t = temp_range.replace("-", "&minus;").split(",")
-	var _str = _t[0] + "&deg;c &ndash; " + _t[1] + "&deg;c"
+	var _str = _t[0] + "&deg;c to&nbsp;+" + _t[1] + "&deg;c"
 	return(_str)
 
 func add_indent_to_block(text: String, amount: int) -> String:

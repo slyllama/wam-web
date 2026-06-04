@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bbywoorsl3axf" path="res://ui/category_editor/category_editor.gd" id="1_8u3bm"]
 [ext_resource type="Script" uid="uid://dbbmjgjtm5kju" path="res://scripts/status.gd" id="2_pbh82"]
+[ext_resource type="Texture2D" uid="uid://cqftvmq0y8d8m" path="res://generic/textures/hamburger.svg" id="2_vl6la"]
 [ext_resource type="PackedScene" uid="uid://qr508f1ta5ax" path="res://ui/list/list.tscn" id="3_5iual"]
+[ext_resource type="Texture2D" uid="uid://b3sxqobttn356" path="res://generic/textures/folder.svg" id="3_qe6sh"]
+[ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="4_vkh5t"]
+[ext_resource type="Texture2D" uid="uid://e2q3ynepux63" path="res://generic/textures/refresh.svg" id="5_65r2x"]
+[ext_resource type="Texture2D" uid="uid://chmb4aaacj3fe" path="res://generic/textures/wam_small.png" id="5_g21i1"]
 [ext_resource type="PackedScene" uid="uid://3cnj2g33ahll" path="res://ui/product/product.tscn" id="5_mgs84"]
+[ext_resource type="Texture2D" uid="uid://j3x07sqect4b" path="res://generic/textures/upload.svg" id="7_14eop"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_drvgu"]
 
@@ -51,12 +57,21 @@ layout_mode = 2
 [node name="CategoryMenu" type="Button" parent="VBox/StatusBox/StatusHBox" unique_id=1066706690]
 layout_mode = 2
 text = "Category Menu"
+icon = ExtResource("2_vl6la")
+
+[node name="DataFolder" type="Button" parent="VBox/StatusBox/StatusHBox" unique_id=1191050478]
+layout_mode = 2
+text = "Data Folder"
+icon = ExtResource("3_qe6sh")
 
 [node name="Status" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=636483279]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.25505486, 0.36313123, 0.09825783, 1)
+theme_override_fonts/font = ExtResource("4_vkh5t")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_powcs")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_pbh82")
 
 [node name="ResetTimer" type="Timer" parent="VBox/StatusBox/StatusHBox/Status" unique_id=2090917259]
@@ -64,11 +79,20 @@ wait_time = 2.0
 one_shot = true
 
 [node name="Tip" type="Label" parent="VBox/StatusBox/StatusHBox" unique_id=1541141459]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 text = "Tip: hold Shift while clicking an ID to keep old product data."
 horizontal_alignment = 2
+
+[node name="WAM" type="TextureRect" parent="VBox/StatusBox/StatusHBox" unique_id=812583533]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("5_g21i1")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="HBox" type="HBoxContainer" parent="VBox" unique_id=1776107038]
 layout_mode = 2
@@ -84,16 +108,19 @@ layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="RenderAll" type="Button" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=1979282878]
+visible = false
 layout_mode = 2
 text = "Render Products"
+icon = ExtResource("5_65r2x")
 
 [node name="RenderCategory" type="Button" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=533660302]
+modulate = Color(0.9647059, 1, 0.87058824, 1)
 layout_mode = 2
-text = "Render Category"
+text = "Update Category"
+icon = ExtResource("7_14eop")
 
 [node name="List" parent="VBox/HBox/SidebarContainer/Sidebar" unique_id=329084322 instance=ExtResource("3_5iual")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -103,6 +130,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [connection signal="pressed" from="VBox/StatusBox/StatusHBox/CategoryMenu" to="." method="_on_category_menu_pressed"]
+[connection signal="pressed" from="VBox/StatusBox/StatusHBox/DataFolder" to="." method="_on_data_folder_pressed"]
 [connection signal="timeout" from="VBox/StatusBox/StatusHBox/Status/ResetTimer" to="VBox/StatusBox/StatusHBox/Status" method="_on_reset_timer_timeout"]
 [connection signal="pressed" from="VBox/HBox/SidebarContainer/Sidebar/RenderAll" to="VBox/HBox/SidebarContainer/Sidebar/List" method="_on_render_all_pressed"]
 [connection signal="pressed" from="VBox/HBox/SidebarContainer/Sidebar/RenderCategory" to="." method="_on_render_category_pressed"]

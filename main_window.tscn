@@ -2,17 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bwqywb14a0rlx" path="res://main_window.gd" id="1_n7l54"]
 [ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="2_tyee0"]
+[ext_resource type="Texture2D" uid="uid://e2q3ynepux63" path="res://generic/textures/refresh.svg" id="3_1rr46"]
+[ext_resource type="Texture2D" uid="uid://chmb4aaacj3fe" path="res://generic/textures/wam_small.png" id="3_fc6ls"]
 [ext_resource type="StyleBox" uid="uid://bvumn4v34aqfe" path="res://generic/category_list_container.tres" id="3_sq7ho"]
 [ext_resource type="FontFile" uid="uid://od3sv7w5otjs" path="res://generic/fonts/intel_one_mono.ttf" id="4_bfu0d"]
-[ext_resource type="StyleBox" uid="uid://mp7tvpxi66k8" path="res://generic/input_style.tres" id="4_iwhwg"]
 [ext_resource type="Script" uid="uid://b31djlpr60fey" path="res://scripts/render_all.gd" id="4_l06f4"]
 [ext_resource type="Script" uid="uid://3g0r6qfv8p1p" path="res://debug_console.gd" id="5_iwhwg"]
+[ext_resource type="Texture2D" uid="uid://j3x07sqect4b" path="res://generic/textures/upload.svg" id="6_fc6ls"]
+[ext_resource type="Texture2D" uid="uid://cg2e73v8iisam" path="res://generic/textures/code.svg" id="7_5y2nw"]
+[ext_resource type="Texture2D" uid="uid://b3sxqobttn356" path="res://generic/textures/folder.svg" id="7_eqarp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w8ba"]
 content_margin_left = 16.0
 content_margin_top = 16.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oce6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5y2nw"]
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rr46"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
 [node name="MainWindow" type="CanvasLayer" unique_id=332607387]
 script = ExtResource("1_n7l54")
@@ -28,21 +45,54 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_8w8ba")
 [node name="VBox" type="VBoxContainer" parent="Box" unique_id=891297324]
 layout_mode = 2
 
-[node name="CategoriesTitle" type="Label" parent="Box/VBox" unique_id=913151168]
+[node name="HBoxContainer" type="HBoxContainer" parent="Box/VBox" unique_id=701863923]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tyee0")
-text = "Manage category products"
 
-[node name="CategoriesDesc" type="Label" parent="Box/VBox" unique_id=1936028557]
-custom_minimum_size = Vector2(1, 1)
+[node name="Title" type="Label" parent="Box/VBox/HBoxContainer" unique_id=1146113607]
 layout_mode = 2
-text = "Click a category to view and edit its contents. Modify a category by editing text files in the 'category_data' folder."
-autowrap_mode = 3
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_tyee0")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0oce6")
+text = "WAM Catalogue Tools"
+
+[node name="WAM" type="TextureRect" parent="Box/VBox/HBoxContainer" unique_id=1141854393]
+custom_minimum_size = Vector2(72, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture = ExtResource("3_fc6ls")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Separator" type="ColorRect" parent="Box/VBox" unique_id=418709935]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+color = Color(0.37036446, 0.3703645, 0.37036446, 1)
+
+[node name="Padding4" type="ColorRect" parent="Box/VBox" unique_id=891175824]
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Box/VBox" unique_id=44077519]
+layout_mode = 2
+
+[node name="CategoriesTitle" type="Label" parent="Box/VBox/HBoxContainer3" unique_id=913151168]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_tyee0")
+text = "Categories (click to edit)"
+
+[node name="RefreshCategories" type="Button" parent="Box/VBox/HBoxContainer3" unique_id=1845351086]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("3_1rr46")
 
 [node name="CategoryListContainer" type="ScrollContainer" parent="Box/VBox" unique_id=1264684128]
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 3
 theme_override_styles/panel = ExtResource("3_sq7ho")
 
 [node name="CategoryList" type="VBoxContainer" parent="Box/VBox/CategoryListContainer" unique_id=2116049069]
@@ -50,67 +100,74 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="RefreshCategories" type="Button" parent="Box/VBox" unique_id=1845351086]
-layout_mode = 2
-text = "Refresh Categories"
-
-[node name="Padding" type="ColorRect" parent="Box/VBox" unique_id=184376415]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
-[node name="ProductsTitle" type="Label" parent="Box/VBox" unique_id=640699268]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_tyee0")
-text = "Manage individual pages"
-
-[node name="ProductsDesc" type="Label" parent="Box/VBox" unique_id=321911833]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-text = "The list of rendered pages is stored in 'pages.txt' with the format 'id,Title'. The program will look for a source file at 'id.html' in the root folder, and place the output at 'pages/id.html'."
-autowrap_mode = 3
-
-[node name="RenderPages" type="Button" parent="Box/VBox" unique_id=1170299953]
-layout_mode = 2
-text = "Render Individual Pages"
-
-[node name="Padding2" type="ColorRect" parent="Box/VBox" unique_id=2009300239]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-color = Color(1, 1, 1, 0)
-
 [node name="RATitle" type="Label" parent="Box/VBox" unique_id=2098246422]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_tyee0")
 text = "Render all"
 
 [node name="RADesc" type="Label" parent="Box/VBox" unique_id=160030819]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 text = "Render all product, category, and individual pages."
 autowrap_mode = 3
 
 [node name="RAButton" type="Button" parent="Box/VBox" unique_id=1968743768]
+modulate = Color(0.96533334, 1, 0.87, 1)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_tyee0")
-text = "Render All"
+text = "Update All"
+icon = ExtResource("6_fc6ls")
 
-[node name="GenCodeAliases" type="Button" parent="Box/VBox" unique_id=505083216]
+[node name="Padding3" type="ColorRect" parent="Box/VBox" unique_id=1515102872]
+custom_minimum_size = Vector2(6, 6)
 layout_mode = 2
-text = "Generate Code Aliases"
+color = Color(1, 1, 1, 0)
 
-[node name="OpenDataFolder" type="Button" parent="Box/VBox" unique_id=1766722809]
+[node name="ToolsSubtitle" type="Label" parent="Box/VBox" unique_id=678420822]
 layout_mode = 2
-text = "Open Data Folder"
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_tyee0")
+text = "Tools"
+
+[node name="Utilities" type="HBoxContainer" parent="Box/VBox" unique_id=1793376965]
+layout_mode = 2
+
+[node name="GenCodeAliases" type="Button" parent="Box/VBox/Utilities" unique_id=505083216]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Alias Codes"
+icon = ExtResource("7_5y2nw")
+
+[node name="OpenDataFolder" type="Button" parent="Box/VBox/Utilities" unique_id=1766722809]
+layout_mode = 2
+size_flags_horizontal = 3
+text = " Data Folder"
+icon = ExtResource("7_eqarp")
+
+[node name="RenderPages" type="Button" parent="Box/VBox/Utilities" unique_id=1170299953]
+modulate = Color(0.9647059, 1, 0.87058824, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Update Pages"
+icon = ExtResource("6_fc6ls")
+
+[node name="Padding" type="ColorRect" parent="Box/VBox" unique_id=184376415]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [node name="DebugConsole" type="RichTextLabel" parent="Box/VBox" unique_id=984863848]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.50534403, 0.5053441, 0.50534403, 1)
 theme_override_constants/line_separation = -4
 theme_override_fonts/normal_font = ExtResource("4_bfu0d")
 theme_override_font_sizes/normal_font_size = 13
-theme_override_styles/normal = ExtResource("4_iwhwg")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5y2nw")
 bbcode_enabled = true
 text = "-- WAM Catalogue Tools --
 "
@@ -118,14 +175,44 @@ scroll_following = true
 autowrap_mode = 0
 script = ExtResource("5_iwhwg")
 
+[node name="PleaseWait" type="ColorRect" parent="." unique_id=907683594]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="PleaseWait" unique_id=511630000]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_1rr46")
+text = "Please Wait..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="RenderAll" type="Node" parent="." unique_id=1016224602]
 unique_name_in_owner = true
 script = ExtResource("4_l06f4")
 
 [node name="Timer" type="Timer" parent="." unique_id=1569820991]
 
-[connection signal="pressed" from="Box/VBox/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
-[connection signal="pressed" from="Box/VBox/RenderPages" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Box/VBox/HBoxContainer3/RefreshCategories" to="." method="_on_refresh_categories_pressed"]
 [connection signal="pressed" from="Box/VBox/RAButton" to="." method="_on_ra_button_pressed"]
-[connection signal="pressed" from="Box/VBox/GenCodeAliases" to="." method="_on_gen_code_aliases_pressed"]
-[connection signal="pressed" from="Box/VBox/OpenDataFolder" to="." method="_on_open_data_folder_pressed"]
+[connection signal="pressed" from="Box/VBox/Utilities/GenCodeAliases" to="." method="_on_gen_code_aliases_pressed"]
+[connection signal="pressed" from="Box/VBox/Utilities/OpenDataFolder" to="." method="_on_open_data_folder_pressed"]
+[connection signal="pressed" from="Box/VBox/Utilities/RenderPages" to="." method="_on_button_pressed"]

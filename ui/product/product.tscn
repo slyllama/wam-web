@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://bkg7p2va6hlq5" path="res://ui/product/product.gd" id="1_80c7e"]
 [ext_resource type="FontFile" uid="uid://od3sv7w5otjs" path="res://generic/fonts/intel_one_mono.ttf" id="2_n00rs"]
 [ext_resource type="FontFile" uid="uid://b0r427yoet6a6" path="res://generic/fonts/ubuntu_bold.ttf" id="2_ydefx"]
+[ext_resource type="Texture2D" uid="uid://wsm58cnpe4ow" path="res://generic/textures/cog.svg" id="4_33pgl"]
+[ext_resource type="Texture2D" uid="uid://btwvj721fky26" path="res://generic/textures/list.svg" id="5_inbyc"]
+[ext_resource type="Texture2D" uid="uid://0asjo8ggi1c6" path="res://generic/textures/add.svg" id="6_2b1p8"]
+[ext_resource type="Texture2D" uid="uid://1m68rjty00bh" path="res://generic/textures/download.svg" id="7_2b1p8"]
+[ext_resource type="Texture2D" uid="uid://j3x07sqect4b" path="res://generic/textures/upload.svg" id="8_2b1p8"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80c7e"]
 content_margin_left = 10.0
@@ -34,11 +39,19 @@ script = ExtResource("1_80c7e")
 [node name="Box" type="VBoxContainer" parent="." unique_id=356490775]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ProductTitle" type="Label" parent="Box" unique_id=984612889]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ydefx")
+theme_override_font_sizes/font_size = 17
+text = "(Untitled)"
 
 [node name="ID" type="Label" parent="Box" unique_id=3556396]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_ydefx")
+theme_override_fonts/font = ExtResource("2_n00rs")
 theme_override_styles/normal = SubResource("StyleBoxFlat_81gfy")
 text = "ID"
 
@@ -73,7 +86,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="PlaceholderImg" type="CheckBox" parent="Box/SubtitleBox" unique_id=421896955]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_81gfy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ydefx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwhui")
+text = "Placeholder Image"
+
 [node name="ImagePathBox" type="HBoxContainer" parent="Box" unique_id=1115264194]
+visible = false
 layout_mode = 2
 
 [node name="ImagePathTitle" type="Label" parent="Box/ImagePathBox" unique_id=245589972]
@@ -89,14 +111,6 @@ theme_override_colors/font_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
 placeholder_text = "(Temporary image URL until mirrored)"
 select_all_on_focus = true
 
-[node name="PlaceholderImg" type="CheckBox" parent="Box/ImagePathBox" unique_id=421896955]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_81gfy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ydefx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mwhui")
-text = "Placeholder"
-
 [node name="DescriptionTitle" type="Label" parent="Box" unique_id=1644909045]
 layout_mode = 2
 text = "Description"
@@ -108,17 +122,20 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Engineering Service"
+icon = ExtResource("4_33pgl")
 
 [node name="GenList" type="Button" parent="Box/Actions" unique_id=530593915]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Generate List"
+icon = ExtResource("5_inbyc")
 
 [node name="Description" type="TextEdit" parent="Box" unique_id=918553165]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_constants/line_spacing = -2
+theme_override_constants/line_spacing = -6
+theme_override_fonts/font = ExtResource("2_n00rs")
 text = "
 "
 wrap_mode = 1
@@ -135,6 +152,7 @@ text = "Properties"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Add"
+icon = ExtResource("6_2b1p8")
 
 [node name="Properties" type="VBoxContainer" parent="Box" unique_id=1678162000]
 unique_name_in_owner = true
@@ -152,18 +170,20 @@ text = "Specifications"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+tooltip_text = "Strip the last column of CSV data in the field below."
 text = "Remove End Column"
 
 [node name="FormatSpecTable" type="Button" parent="Box/SpecTableBox" unique_id=854059411]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
+tooltip_text = "Tidy CSV content in the field below."
 text = "Format"
 
 [node name="SpecTable" type="TextEdit" parent="Box" unique_id=895482617]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("2_n00rs")
 placeholder_text = "Specifications"
@@ -175,18 +195,24 @@ color = Color(0.012617188, 0.012617188, 0.012617188, 0)
 
 [node name="Options" type="HBoxContainer" parent="Box" unique_id=1317906487]
 layout_mode = 2
-
-[node name="Reload" type="Button" parent="Box/Options" unique_id=873729260]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Reload From File"
+size_flags_vertical = 8
 
 [node name="Render" type="Button" parent="Box/Options" unique_id=302810263]
 unique_name_in_owner = true
+modulate = Color(0.9647059, 1, 0.87058824, 1)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Save and Render"
+tooltip_text = "Save product data to its JSON file, and render the page into HTML."
+text = "Update Product"
+icon = ExtResource("8_2b1p8")
+
+[node name="Reload" type="Button" parent="Box/Options" unique_id=873729260]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+tooltip_text = "Reload from file"
+icon = ExtResource("7_2b1p8")
 
 [connection signal="pressed" from="Box/Actions/EngService" to="." method="_on_eng_service_pressed"]
 [connection signal="pressed" from="Box/Actions/GenList" to="." method="_on_gen_list_pressed"]
@@ -195,5 +221,5 @@ text = "Save and Render"
 [connection signal="pressed" from="Box/SpecTableBox/FormatSpecTable" to="." method="_on_format_spec_table_pressed"]
 [connection signal="focus_exited" from="Box/SpecTable" to="Box/SpecTable" method="_on_focus_exited"]
 [connection signal="text_changed" from="Box/SpecTable" to="Box/SpecTable" method="_on_text_changed"]
-[connection signal="pressed" from="Box/Options/Reload" to="." method="_on_reload_pressed"]
 [connection signal="pressed" from="Box/Options/Render" to="." method="_on_render_pressed"]
+[connection signal="pressed" from="Box/Options/Reload" to="." method="_on_reload_pressed"]

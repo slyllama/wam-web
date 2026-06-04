@@ -70,6 +70,7 @@ func apply_changes() -> void: # TODO: try and keep the same order as populate()
 func populate(clear := true) -> void:
 	%ID.text = id
 	if clear and !Input.is_action_pressed("shift"):
+		%ProductTitle.text = "(Untitled)"
 		%Title.text = ""
 		%Subtitle.text = ""
 		%ImagePath.text = ""
@@ -78,7 +79,9 @@ func populate(clear := true) -> void:
 		for _p in %Properties.get_children():
 			_p.queue_free()
 	
-	if "title" in data: %Title.text = data.title
+	if "title" in data:
+		%ProductTitle.text = data.title
+		%Title.text = data.title
 	if "description" in data: %Description.text = data.description
 	if "subtitle" in data: %Subtitle.text = data.subtitle
 	if "temp_img_path" in data: %ImagePath.text = data.temp_img_path

@@ -1,5 +1,53 @@
 extends CanvasLayer
 
+const CAT_TITLE_ALIASES := {
+	"airline.txt": "Airline Fittings",
+	"al_fittings.txt": "Aluminium Camlocks and Fittings",
+	"bandings_cable_ties.txt": "Bandings and Cable Ties",
+	"bauer_assorted_fittings.txt": "Bauer and Assorted Fittings",
+	"brass_fittings.txt": "Brass Camlocks and Fittings",
+	"clips_clamps.txt": "Clips and Clamps",
+	"composite_ss.txt": "Composite and Stainless Steel Hoses",
+	"crimping_machines.txt": "Crimping Machines",
+	"ducting_vacuum.txt": "Ducting and Vacuum Hoses",
+	"engineering.txt": "Engineering Services",
+	"expansion_joints.txt": "Expansion Joints",
+	"featured.txt": "Featured Products",
+	"galv_bs_fittings.txt": "Galvanised and Black Steel Fittings",
+	"garden_fittings.txt": "Garden Fittings",
+	"hose_accessories.txt": "Hose Accessories",
+	"hose_slings.txt": "Hose Slings",
+	"hyd_steel_adaptors.txt": "Hydraulic Steel Adaptors",
+	"hyd_steel_fittings.txt": "Hydraulic Steel Fittings",
+	"hydraulic_hose.txt": "Hydraulic Hoses",
+	"nozzles.txt": "Nozzles",
+	"plastic_chem_fittings.txt": "Plastic and Chemical Fittings",
+	"plastic_hose.txt": "Plastic Hoses",
+	"pumps.txt": "Pumps and Flowmeters",
+	"pwash_fittings.txt": "Pressure Wash Fittings",
+	"reels.txt": "Hose Reels",
+	"rubber_hose.txt": "Rubber Hoses",
+	"rubber_sheet.txt": "Rubber Sheet",
+	"silicone_rubber_adaptors.txt": "Silicone and Rubber Adaptors",
+	"speed_fittings.txt": "Speed Fittings",
+	"ss_fittings.txt": "Stainless Steel Fittings",
+	"storage_bins.txt": "Storage Bins",
+	"strainers.txt": "Strainers",
+	"tank_truck.txt": "Tank Truck Valves and Accessories",
+	"v_belts.txt": "V-Belts",
+	"valves_brass.txt": "Brass Valves",
+	"valves_gas.txt": "Gas Valves",
+	"valves_plastic.txt": "Plastic Valves",
+	"valves_ss.txt": "Stainless Steel Valves",
+	"valves_steel.txt": "Steel Valves"
+}
+
+func get_cat_title(file_name: String) -> String:
+	var output := file_name
+	if file_name in CAT_TITLE_ALIASES:
+		output = CAT_TITLE_ALIASES[file_name]
+	return(output)
+
 func render_pages() -> void:
 	# Generate pages
 	Global.pconsole("Rendering pages.")
@@ -32,10 +80,10 @@ func render_categories() -> void:
 	var _list_dir = DirAccess.get_files_at(Global.CATEGORY_DATA_PATH)
 	for _file in _list_dir:
 		var _b = Button.new()
-		_b.text = _file
+		_b.text = get_cat_title(_file)
 		_b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		_b.flat = true
-		_b.theme_type_variation = "ListButton"
+		_b.set_theme_type_variation("ListButton")
 		_b.pressed.connect(func():
 			var _list = Global.generate_list(Global.CATEGORY_DATA_PATH + _file)
 			var _category_editor = load(
@@ -46,7 +94,10 @@ func render_categories() -> void:
 		%CategoryList.add_child(_b)
 
 func _ready() -> void:
-	get_window().size.x = floori(700.0 * get_window().content_scale_factor)
+	if !Global.first_run:
+		get_window().size.x = floori(900.0 * get_window().content_scale_factor)
+		get_window().position = DisplayServer.screen_get_position() + Vector2i(40, 60)
+		Global.first_run = true
 	render_categories()
 	Global.pconsole("Ready.")
 
@@ -57,8 +108,12 @@ func _on_refresh_categories_pressed() -> void:
 	render_categories()
 
 func _on_ra_button_pressed() -> void:
+	%PleaseWait.visible = true
+	for _i in 3: await get_tree().process_frame
 	%RenderAll.render_all()
 	render_pages()
+	for _i in 3: await get_tree().process_frame
+	%PleaseWait.visible = false
 
 func _on_open_data_folder_pressed() -> void:
 	OS.shell_open(OS.get_user_data_dir())

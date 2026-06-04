@@ -52,13 +52,12 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56vwn"]
-content_margin_left = 1.0
-content_margin_top = 3.0
-content_margin_right = 1.0
-content_margin_bottom = 3.0
-bg_color = Color(0.9, 0.9, 0.9, 1)
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37o18"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgjgm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c0d7"]
 content_margin_left = 5.0
@@ -75,6 +74,18 @@ corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2rom"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+bg_color = Color(0.99419385, 0.9606444, 0.85679334, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45983195, 0.37385446, 0.17271885, 1)
 
 [resource]
 Button/colors/font_color = Color(0.2, 0.2, 0.2, 1)
@@ -104,7 +115,7 @@ ListButton/colors/font_color = Color(0.2, 0.2, 0.2, 1)
 ListButton/colors/font_hover_color = Color(0, 0, 0, 1)
 ListButton/colors/font_pressed_color = Color(0, 0, 0, 1)
 ListButton/styles/hover = SubResource("StyleBoxFlat_56vwn")
-ListButton/styles/normal = SubResource("StyleBoxEmpty_37o18")
+ListButton/styles/normal = SubResource("StyleBoxFlat_hgjgm")
 ListButton/styles/pressed = SubResource("StyleBoxFlat_56vwn")
 TextEdit/colors/caret_color = Color(0.23921569, 0.68235296, 0.9137255, 1)
 TextEdit/colors/font_color = Color(0.37, 0.37, 0.37, 1)
@@ -116,3 +127,4 @@ TextEdit/font_sizes/font_size = 13
 TextEdit/styles/focus = SubResource("StyleBoxFlat_1c0d7")
 TextEdit/styles/normal = ExtResource("2_1c0d7")
 TextEdit/styles/read_only = ExtResource("2_1c0d7")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_l2rom")
