@@ -86,13 +86,26 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PlaceholderImg" type="CheckBox" parent="Box/SubtitleBox" unique_id=421896955]
+[node name="ParamsBox" type="HBoxContainer" parent="Box" unique_id=494521463]
+layout_mode = 2
+
+[node name="PlaceholderImg" type="CheckBox" parent="Box/ParamsBox" unique_id=421896955]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxEmpty_81gfy")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ydefx")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mwhui")
 text = "Placeholder Image"
+
+[node name="CustomHTML" type="CheckBox" parent="Box/ParamsBox" unique_id=1345630416]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_81gfy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ydefx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mwhui")
+text = "Custom HTML"
 
 [node name="ImagePathBox" type="HBoxContainer" parent="Box" unique_id=1115264194]
 visible = false
