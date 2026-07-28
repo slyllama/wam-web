@@ -1,5 +1,5 @@
 extends Node
-const DATA_ROOT := "\\\\PIPE-PC40\\hoseshop-web\\"
+const DATA_ROOT := "\\\\PIPE-PC40\\wam-web-live\\"
 #const DATA_ROOT := "user://web/"
 const HTML_ROOT := DATA_ROOT + "live/"
 const PAGES_ROOT := HTML_ROOT + "page/"
